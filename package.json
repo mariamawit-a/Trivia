@@ -1,0 +1,23 @@
+{
+  "name": "Trivia",
+  "version": "1.0.0",
+  "description": "Trivia game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariamawit-a/Trivia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariamawit-a/Trivia/issues"
+  },
+  "homepage": "https://github.com/mariamawit-a/Trivia#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
