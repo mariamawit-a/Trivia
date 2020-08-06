@@ -1,40 +1,30 @@
 const express = require('express');
-const axios = require('axios');
-
+//const axios = require('axios');
+const path = require('path');
+const app = express();
 const PORT = process.env.PORT || 3030
 
-const app = express();
+//app.set('views', path.join(__dirname, 'views'));
+require('dotenv').config();
 
-// //console.log(__dirname);
-// app.listen(PORT);
+const indexRouter = require('./routes/index');
+const gameRouter = require('./routes/games');
+
+app.set('view engine', 'ejs');
+
 
 app.use(express.json());
-// //app.use(express.urlencoded({extend: false}));
-// //app.use(express.static(path(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// app.get('/', (req, res) =>{
-//     res.send("hi");
-// });
+app.use('/', indexRouter);
+app.use('/games', gameRouter);
 
-app.get('/', (req, res) =>{
-    var config = {
-        method: 'get',
-        url: 'https://opentdb.com/api.php?amount=26&difficulty=easy&type=multiple',
-        headers: { 
-          'Cookie': 'PHPSESSID=j%2CRBjl614wLiNuyQj0fiE0'
-        }
-      };
-      
-      axios(config)
-      .then(function (response) {
-        res.send(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-});
+app.listen(PORT, (err) =>
+  console.log(`${err ? err : `running on PORT ${PORT}`}`),
+);
 
-app.listen(PORT, (err) => console.log(`${err ? err: 'Running on port 3030'}`));
+
+
 
 // var config = {
 //     method: 'get',
