@@ -1,13 +1,16 @@
 const express = require('express');
-const router = express.Router();
+const axios = require('axios');
+const router = express.Router();;
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('intro/select');
+  res.render('intro/index');
 });
 
-router.get('/home', (req, res, next) => {
-    res.render('intro/index', { title: 'Trivia App' });
+router.get('/home', async(req, res, next) => {
+    const reponse = await axios.get('https://opentdb.com/api_category.php');
+       
+    res.render('intro/select', {value: reponse.data.trivia_categories});
   });
 
 module.exports = router;

@@ -8,10 +8,7 @@ router.get('/', async (req, res) =>{
     
       const reponse = await axios.get('https://opentdb.com/api.php?amount=26&difficulty=easy&type=multiple');
        
-      
-        res.render('games/index', {value: reponse.data.results});
-    
-      
+      res.render('games/index', {value: reponse.data.results});   
 });
 
 /* GET movie by id listing. */

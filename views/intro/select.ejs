@@ -1,5 +1,8 @@
 <%- include('../partials/header') %>
     <h1>trivia</h1>
     <p>Choose a catagory</p>
-    <a href="/home">See trivia questions</p>
+    <a href="/games">See trivia questions</p>
+        <% value.forEach(catagory => { %>
+            <a href="/movies/<%= catagory.id %>"><div class="catagory"><%- catagory.name %></div></a>
+            <% }) %> 
 <%- include('../partials/footer') %>
