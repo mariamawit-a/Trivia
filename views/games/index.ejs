@@ -40,12 +40,16 @@
         <a href=""><div class="choice"><%- i %></div></a>
         <% }) %>  
     </div>
-
+    <%console.log(value);%>
     <script>
+
         $(function () {
+
+
             var parents = $("#choices");
             var divs = parents.children();
-    
+            console.log(typeof(divs));
+
             while(divs.length){
             parents.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
             }

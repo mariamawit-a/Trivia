@@ -3,6 +3,6 @@
     <p>Choose a catagory</p>
     <a href="/games">See trivia questions</p>
         <% value.forEach(catagory => { %>
-            <a href="/movies/<%= catagory.id %>"><div class="catagory"><%- catagory.name %></div></a>
+            <a href="/games/<%= catagory.id %>"><div class="catagory"><%- catagory.name %></div></a>
             <% }) %> 
 <%- include('../partials/footer') %>

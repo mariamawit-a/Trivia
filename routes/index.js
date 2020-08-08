@@ -13,4 +13,8 @@ router.get('/home', async(req, res, next) => {
     res.render('intro/select', {value: reponse.data.trivia_categories});
   });
 
+router.get('/coming', async(req, res, next) => {    
+    res.render('intro/coming');
+});
+
 module.exports = router;
