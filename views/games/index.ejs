@@ -1,0 +1,76 @@
+<%- include('../partials/header') %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<p id="timer"></p>
+<h2 id="end"></h2>
+<script>
+    // The data/time we want to countdown to
+    var countDownDate = new Date().getTime()+ (6 * 60 * 1000);
+
+    // Run myfunc every second
+    var myfunc = setInterval(function() {
+
+    var now = new Date().getTime();
+    var timeleft = countDownDate - now;
+        
+    // Calculating the days, hours, minutes and seconds left
+    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        
+    // Result is output to the specific element
+    document.getElementById("timer").innerHTML = minutes.toString().padStart(2, 0)+":"+ seconds.toString().padStart(2, 0);
+    
+    if(minutes==0 && seconds<6){
+        if(window.getComputedStyle(document.html).backgroundColor == "rgb(223, 39, 184)")
+        document.html.style.backgroundColor = "rgb(48, 23, 82)";
+        else
+        document.html.style.backgroundColor = "rgb(223, 39, 184)";
+    }
+
+    // Display the message when countdown is over
+    if (timeleft < 0) {
+        clearInterval(myfunc);
+        document.getElementById("timer").innerHTML = "TIME UP!!";
+    }
+    }, 1000);
+    
+</script>
+
+
+<h1>Trivia questions</h1>
+<div>
+  <% questions.forEach((question,index) => { %>
+    <div class="question"><%-index+1%>. <%-question.question%> </div>
+    <div id = "choices">
+        <a href="/games/"><div class="choice" id="correct"><%- question.correct_answer%></div></a>
+        <% question.incorrect_answers.forEach(i => { %>
+        <a href=""><div class="choice"><%- i %></div></a>
+        <% }) %>  
+    </div>
+
+<script>
+
+        $(function () {
+
+            var parents = $("#choices");
+            var divs = parents.children();
+
+            while(divs.length){
+            parents.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+            }
+
+            document.getElementById('choices').setAttribute('id', 'chosen');
+            
+        });           
+    </script>
+
+    <% }) %> 
+</div>
+
+
+
+
+
+<%- include('../partials/footer') %>
+
+
