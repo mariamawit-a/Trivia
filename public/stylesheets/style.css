@@ -20,6 +20,76 @@
     margin: 0;
     background: var(--backgroundColor);
   }
+
+  @font-face{
+    font-family: 'Retro';
+    src: url(/Assets/NineteenNinetySeven-11XB.ttf);
+}
+
+  #box{
+    text-align: center;
+    margin: 4% 3%;
+    font-family: 'Retro';
+}
+
+  #head, #head-top {
+    display: flex;
+    justify-content: center;
+ }
+
+   #head-top{
+    background-color: var(--colorShadeB);
+    height: 10vh;
+    width: auto;
+  }
+
+   #prompt {
+    color: var(--colorShadeB);
+    font-size: 18pt;
+    text-align: center;
+  }
+
+    .profile {
+      border-radius: 50%;
+      height: fit-content;
+      width: fit-content;
+      border: var(--colorShadeA) solid 2px;
+      background-color: var(--colorShadeB);
+      margin: auto;
+    }
+
+        .profile img{
+            border-radius: 50%;
+        }
+
+        #content{
+            border-radius: 20px;
+        }
+
+        .user-info{
+          display: flex;
+          justify-content: center;
+        }
+
+        .user-info li {
+            margin: 2%; 
+            list-style-type: none;
+        }
+
+          #username{
+              border-radius: 20px;
+              border: var(--colorShadeE) solid 3px;
+              height: 3vh;
+          }
+
+          .btn {
+              width: 250px;
+              height: 30px;
+              background-color: var(--colorShadeE);
+              border-radius: 12px;
+              border: var(--colorShadeC) solid 3px;
+          }
+
   #landing-page{
     height:100vh;
     width: 100%;
