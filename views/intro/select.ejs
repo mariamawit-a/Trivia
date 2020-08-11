@@ -28,14 +28,21 @@ imgArray[22] = 'https://imagizer.imageshack.com/v2/150x100q90/922/shRbbA.png';
 imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
 %>  
 
-<h1>trivia</h1>
+
+<div id="category-page">
+    <h1>trivia</h1>
     <p>Choose a category</p>
-        <div id="categories">
-        <% categories.forEach((category, index) => { %>
-                <div onclick="location.href = '/games/<%= category.id %>'" class="category">
-                    <img src= <%- imgArray[index] %> />
-                    <p><%- category.name %></p>
-                </div>
-        <% }) %> 
-        </div>
+    <div id="categories">
+    <% categories.forEach((category, index) => { %>
+            <div onclick="location.href = '/games/<%= category.id %>'" class="category">
+                <img src= <%- imgArray[index] %> />
+                <p><%- category.name %></p>
+            </div>
+    <% }) %> 
+    </div>
+    <div id="settings">
+        <button class="setting"><img src="https://imagizer.imageshack.com/img922/4830/RW4eT2.png"/></button>
+        <button class="setting"><img src="https://imagizer.imageshack.com/img924/1254/kuGFwD.png"></button>
+    </div>
+</div>
 <%- include('../partials/footer') %>
