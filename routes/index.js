@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 router.get('/home', async(req, res, next) => {
     const reponse = await axios.get('https://opentdb.com/api_category.php');
        
-    res.render('intro/select', {value: reponse.data.trivia_categories});
+    res.render('intro/select', {categories: reponse.data.trivia_categories});
   });
 
 router.get('/coming', async(req, res, next) => {    

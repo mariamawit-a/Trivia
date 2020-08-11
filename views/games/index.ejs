@@ -18,8 +18,15 @@
     var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
         
     // Result is output to the specific element
-    document.getElementById("timer").innerHTML = minutes+":"+seconds
-        
+    document.getElementById("timer").innerHTML = minutes.toString().padStart(2, 0)+":"+ seconds.toString().padStart(2, 0);
+    
+    if(minutes==0 && seconds<6){
+        if(window.getComputedStyle(document.html).backgroundColor == "rgb(223, 39, 184)")
+        document.html.style.backgroundColor = "rgb(48, 23, 82)";
+        else
+        document.html.style.backgroundColor = "rgb(223, 39, 184)";
+    }
+
     // Display the message when countdown is over
     if (timeleft < 0) {
         clearInterval(myfunc);
@@ -32,23 +39,21 @@
 
 <h1>Trivia questions</h1>
 <div>
-  <% value.forEach((questions,index) => { %>
-    <div class="question"><%-index+1%>. <%-questions.question%> </div>
+  <% questions.forEach((question,index) => { %>
+    <div class="question"><%-index+1%>. <%-question.question%> </div>
     <div id = "choices">
-        <a href="/games/"><div class="choice" id="correct"><%- questions.correct_answer%></div></a>
-        <% questions.incorrect_answers.forEach(i => { %>
+        <a href="/games/"><div class="choice" id="correct"><%- question.correct_answer%></div></a>
+        <% question.incorrect_answers.forEach(i => { %>
         <a href=""><div class="choice"><%- i %></div></a>
         <% }) %>  
     </div>
-    <%console.log(value);%>
-    <script>
+
+<script>
 
         $(function () {
 
-
             var parents = $("#choices");
             var divs = parents.children();
-            console.log(typeof(divs));
 
             while(divs.length){
             parents.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);

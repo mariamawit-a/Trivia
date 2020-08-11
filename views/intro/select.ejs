@@ -1,8 +1,41 @@
 <%- include('../partials/header') %>
-    <h1>trivia</h1>
-    <p>Choose a catagory</p>
-    <a href="/games">See trivia questions</p>
-        <% value.forEach(catagory => { %>
-            <a href="/games/<%= catagory.id %>"><div class="catagory"><%- catagory.name %></div></a>
-            <% }) %> 
+
+<%
+var imgArray = new Array();
+imgArray[0] = 'https://imagizer.imageshack.com/v2/150x100q90/923/RNgUKF.png';
+imgArray[1] = 'https://imagizer.imageshack.com/v2/150x100q90/922/JDtPWi.png';
+imgArray[2] = 'https://imagizer.imageshack.com/v2/150x100q90/923/gjuapd.png';
+imgArray[3] = 'https://imagizer.imageshack.com/v2/150x100q90/924/4eNvyr.png';
+imgArray[4] = 'https://imagizer.imageshack.com/v2/150x100q90/924/oeMz0Y.png';
+imgArray[5] = 'https://imagizer.imageshack.com/v2/150x100q90/922/60quUp.png';
+imgArray[6] = 'https://imagizer.imageshack.com/v2/150x100q90/924/rZipYC.png';
+imgArray[7] = 'https://imagizer.imageshack.com/v2/150x100q90/924/34FDV0.jpg';
+imgArray[8] = 'https://imagizer.imageshack.com/v2/150x100q90/922/NlK0Kt.png';
+imgArray[9] = 'https://imagizer.imageshack.com/v2/150x100q90/923/D2yF6k.png';
+imgArray[10] = 'https://imagizer.imageshack.com/v2/150x100q90/922/BkcURh.png';
+imgArray[11] = 'https://imagizer.imageshack.com/v2/150x100q90/923/eoaB7b.png';
+imgArray[12] = 'https://imagizer.imageshack.com/v2/150x100q90/922/CTGlf0.png';
+imgArray[13] = 'https://imagizer.imageshack.com/v2/150x100q90/924/F3MUUx.jpg';
+imgArray[14] = 'https://imagizer.imageshack.com/v2/150x100q90/922/nyE0oM.png';
+imgArray[15] = 'https://imagizer.imageshack.com/v2/150x100q90/923/ndYZDG.png';
+imgArray[16] = 'https://imagizer.imageshack.com/v2/150x100q90/924/1ZJh77.png';
+imgArray[17] = 'https://imagizer.imageshack.com/v2/150x100q90/923/sBFb7h.png';
+imgArray[18] = 'https://imagizer.imageshack.com/v2/150x100q90/922/LIFyax.png';
+imgArray[19] = 'https://imagizer.imageshack.com/v2/150x100q90/924/OkzzK3.png';
+imgArray[20] = 'https://imagizer.imageshack.com/v2/150x100q90/923/iCLhEd.png';
+imgArray[21] = 'https://imagizer.imageshack.com/v2/150x100q90/924/XtVD1W.png';
+imgArray[22] = 'https://imagizer.imageshack.com/v2/150x100q90/922/shRbbA.png';
+imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
+%>  
+
+<h1>trivia</h1>
+    <p>Choose a category</p>
+        <div id="categories">
+        <% categories.forEach((category, index) => { %>
+                <div onclick="location.href = '/games/<%= category.id %>'" class="category">
+                    <img src= <%- imgArray[index] %> />
+                    <p><%- category.name %></p>
+                </div>
+        <% }) %> 
+        </div>
 <%- include('../partials/footer') %>

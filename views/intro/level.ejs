@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+    <h1>trivia</h1>
+    <p>Choose Level of Difficulty</p>
+    <div id="levels">
+        <a href="/games/<%= categoryid %>/easy"><button class="big-button" onclick="location.href = '/home'">Easy</button></a>
+        <a href="/games/<%= categoryid %>/medium"><button class="big-button" onclick="location.href = '/home'">Medium</button></a>
+        <a href="/games/<%= categoryid %>/hard"><button class="big-button" onclick="location.href = '/home'">Hard</button></a>
+    </div>
+<%- include('../partials/footer') %>

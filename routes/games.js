@@ -8,25 +8,29 @@ router.get('/', async (req, res) =>{
     
       const reponse = await axios.get('https://opentdb.com/api.php?amount=26&difficulty=easy&type=multiple');
        
-      res.render('games/index', {value: reponse.data.results});   
+      res.render('intro/level', {questions: reponse.data.results});   
 });
 
 /* GET movie by id listing. */
-router.get('/:id', async (req, res, next) => {
-    const { id } = req.params;
+router.get('/:categoryid', async (req, res, next) => {
+    const {categoryid} = req.params;
   
-    try {
-      const { data: question } = await axios.get(
-        `https://opentdb.com/api.php?amount=${id}&difficulty=easy&type=multiple`,
-      );
-      // const movieData = movie.data;
-      console.log(movie);
-      res.render('games/question', {
-        question,
-      });
-    } catch (e) {
-      console.log(e);
-    }
+    res.render('intro/level', {categoryid});
+
   });
+
+router.get('/:categoryid/:difficultyLevel', async (req, res, next) => {
+  const {categoryid} = req.params;
+  const {difficultyLevel} = req.params;
+
+  try {
+    const reponse = await axios.get(
+      `https://opentdb.com/api.php?amount=26&category=${categoryid}&difficulty=${difficultyLevel}&type=multiple`,
+    );
+    res.render('games/index', {questions: reponse.data.results});
+  } catch (e) {
+    console.log(e);
+  }
+});
   
   module.exports = router;
