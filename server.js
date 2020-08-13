@@ -2,11 +2,14 @@ const express = require('express');
 //const axios = require('axios');
 const path = require('path');
 const app = express();
+
 var $ = require('jquery');
 const PORT = process.env.PORT || 3000
 
 //app.set('views', path.join(__dirname, 'views'));
 require('dotenv').config();
+
+const firebase = require('./config/firebase');
 
 const indexRouter = require('./routes/index');
 const gameRouter = require('./routes/games');
@@ -15,6 +18,7 @@ app.set('view engine', 'ejs');
 
 
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.use('/', indexRouter);
@@ -24,6 +28,19 @@ app.listen(PORT, (err) =>
   console.log(`${err ? err : `running on PORT ${PORT}`}`),
 );
 
+// router.post('/signup', (req, res) => {
+//   console.log(req.body)
+//   firebase.doCreateUserWithEmailAndPassword(req.body.email, req.body.password)
+//     .then(authUser => {
+//       console.log(authUser);
+//       firebase.doCreateUser(authUser.user.uid, {
+//         email: req.body.email,
+//       }).then(snapShot => {})
+//     }).catch(err => {
+//       req.app.locals.err = err.message
+//       res.redirect('/');
+//     })
+// })
 
 
 

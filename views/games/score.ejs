@@ -1,9 +1,8 @@
-<%
-      function shuffle(array) {
-        array.sort(() => Math.random() - 0.5);
-        }
-      let choices = [m.correct_answer];
-      choices = choices.concat(m.incorrect_answers);
-      shuffle({choices});
-%>
+<%- include('../partials/header') %>
+    <h1>trivia</h1>
+    <p>Choose Level of Difficulty</p>
+    <div>
+      <p><%- score %></p>
 
+    </div>
+<%- include('../partials/footer') %>

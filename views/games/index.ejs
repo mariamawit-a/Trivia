@@ -1,54 +1,68 @@
 <%- include('../partials/header') %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<p id="timer"></p>
-<h2 id="end"></h2>
+<p id="timer">02:00</p>
 <script>
-    // The data/time we want to countdown to
-    var countDownDate = new Date().getTime()+ (6 * 60 * 1000);
+    window.onload = function(){
+        // The data/time we want to countdown to
+        var countDownDate = new Date().getTime()+ (2 * 6 * 1000 + 2);
 
-    // Run myfunc every second
-    var myfunc = setInterval(function() {
+        // Run myfunc every second
+        var myfunc = setInterval(function() {
 
-    var now = new Date().getTime();
-    var timeleft = countDownDate - now;
+        var now = new Date().getTime();
+        var timeleft = countDownDate - now;
+            
+        // Calculating the days, hours, minutes and seconds left
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+            
+        // Result is output to the specific element
+        document.getElementById("timer").innerHTML = minutes.toString().padStart(2, 0)+":"+ seconds.toString().padStart(2, 0);
         
-    // Calculating the days, hours, minutes and seconds left
-    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-        
-    // Result is output to the specific element
-    document.getElementById("timer").innerHTML = minutes.toString().padStart(2, 0)+":"+ seconds.toString().padStart(2, 0);
-    
-    if(minutes==0 && seconds<6){
-        if(window.getComputedStyle(document.html).backgroundColor == "rgb(223, 39, 184)")
-        document.html.style.backgroundColor = "rgb(48, 23, 82)";
-        else
-        document.html.style.backgroundColor = "rgb(223, 39, 184)";
-    }
+        if(minutes==0 && seconds<6){
+            if(window.getComputedStyle(document.body).backgroundColor == "rgb(48, 23, 82)")
+            document.html.style.backgroundColor = "rgb(223, 39, 184)";
+            else
+            document.html.style.backgroundColor = "rgb(48, 23, 82)";
+        }
 
-    // Display the message when countdown is over
-    if (timeleft < 0) {
-        clearInterval(myfunc);
-        document.getElementById("timer").innerHTML = "TIME UP!!";
-    }
-    }, 1000);
-    
+        // Display the message when countdown is over
+        if (timeleft < 0) {
+            clearInterval(myfunc);
+            document.getElementById("timer").innerHTML = "TIME UP!!";
+            document.getElementById('form').submit();
+        }
+        }, 1000);
+    };
+
+    var num = 1;
 </script>
 
 
 <h1>Trivia questions</h1>
 <div>
+  <form method="POST" action="/games/submit" id="form">
   <% questions.forEach((question,index) => { %>
-    <div class="question"><%-index+1%>. <%-question.question%> </div>
-    <div id = "choices">
-        <a href="/games/"><div class="choice" id="correct"><%- question.correct_answer%></div></a>
-        <% question.incorrect_answers.forEach(i => { %>
-        <a href=""><div class="choice"><%- i %></div></a>
-        <% }) %>  
-    </div>
-
-<script>
+    <fieldset>
+        <div class="question">
+            <%-index+1%>. <%-question.question%>
+        </div>
+        <div id = "choices">
+            <%choices = `choice${index}`%>
+            <div class="choices">
+                <input type="radio" name="choices" value="correct" class="radio">
+                <label class="choice" ><%- question.correct_answer%></label>
+            </div>
+            <% question.incorrect_answers.forEach(i => { %>
+            <div class= "choices">
+                <input type="radio" name="choices" value="incorrect" class="radio">
+                <label class="choice"><%- i %></label>
+            </div>
+            <% }) %>  
+        </div>
+    </fieldset>
+   <script>
 
         $(function () {
 
@@ -59,12 +73,27 @@
             parents.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
             }
 
+            const name = `choicefor${num}`;
             document.getElementById('choices').setAttribute('id', 'chosen');
-            
+
+            for(let radionum = 0; radionum<4; ++radionum)
+            {
+                document.getElementsByClassName('radio')[radionum].setAttribute('name', name);
+            }
+            for(let radionum = 0; radionum<4; ++radionum)
+            {
+                document.getElementsByClassName('radio')[0].setAttribute('class', 'radios');
+            }
+                
+
+
+            ++num;
         });           
     </script>
 
     <% }) %> 
+        <input class="big-button" type="submit" value="Submit">
+    </form>
 </div>
 
 
