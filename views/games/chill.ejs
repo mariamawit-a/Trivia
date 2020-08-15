@@ -2,59 +2,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <div class="navbar"> 
-    <a href='/partycategories' class="back">
+    <a href='/chillcategories' class="back">
         <i class="fa fa-angle-left"></i>
     </a>
     <div class="menu">
         <h1>OTrivia</h1>
-        <h1 id="timer">03:00</h1>
     </div>
 </div>
 <script>
-    window.onload = function(){
-        // The data/time we want to countdown to
-        var countDownDate = new Date().getTime()+ (3 * 60 * 1000 + 2);
-
-        // Run myfunc every second
-        var myfunc = setInterval(function() {
-
-        var now = new Date().getTime();
-        var timeleft = countDownDate - now;
-        
-        
-        //change redirect url time
-        document.getElementById('form').action = `/games/submit/${timeleft+1000}`;
-
-        // Calculating the days, hours, minutes and seconds left
-        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-            
-        // Result is output to the specific element
-        document.getElementById("timer").innerHTML = minutes.toString().padStart(2, 0)+":"+ seconds.toString().padStart(2, 0);
-        
-        if(minutes==0 && seconds<6){
-            if(window.getComputedStyle(document.body).backgroundColor == "rgb(48, 23, 82)")
-            document.html.style.backgroundColor = "rgb(223, 39, 184)";
-            else
-            document.html.style.backgroundColor = "rgb(48, 23, 82)";
-        }
-
-        // Display the message when countdown is over
-        if (timeleft < 0) {
-            clearInterval(myfunc);
-            document.getElementById("timer").innerHTML = "TIME UP!!";
-            document.getElementById('form').action = `/games/submit/0`;
-            document.getElementById('form').submit();
-        }
-        }, 1000);
-    };
 
     var num = 1;
 </script>
 
 
 <div>
-  <form method="POST" action="/games/submit/0" id="form">
+  <form id="form" onsubmit="return false">
   <% questions.forEach((question,index) => { %>
     <fieldset>
         <div class="question">
@@ -104,11 +66,20 @@
     </script>
 
     <% }) %> 
-        <input class="big-button" type="submit" value="Submit">
+
+    <button onclick='check()' class="big-button">Show</button>
+
     </form>
 </div>
 
+<script>
+    function check(){
 
+        Object.values(document.querySelectorAll('input[value=correct]')).forEach(correct=> {
+            correct.checked = true;
+        })
+    }
+</script>
 
 
 <%- include('../partials/footer') %>

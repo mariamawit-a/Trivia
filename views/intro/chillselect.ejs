@@ -33,13 +33,13 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
         <i class="fa fa-angle-left"></i>
     </a>
     <div class="menu">
-        <h1>PARTY OF ONE</h1>
+        <h1>CHILL MODE</h1>
     </div>
 </div>
 <div id="category-page">
     <div id="categories">
     <% categories.forEach((category, index) => { %>
-            <div onclick="location.href = '/games/<%= category.id %>'" class="category">
+            <div onclick="location.href = '/games/chill/<%= category.id %>'" class="category">
                 <img src= <%- imgArray[index] %> />
                 <p><%- category.name %></p>
             </div>

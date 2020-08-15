@@ -1,8 +1,167 @@
 <%- include('../partials/header') %>
-    <h1>trivia</h1>
-    <p>Choose Level of Difficulty</p>
-    <div>
-      <p><%- score %></p>
+
+<div class="navbar"> 
+  <a href='/partycategories' class="back">
+      <i class="fa fa-angle-left"></i>
+  </a>
+  <div class="menu">
+      <h1>Scoreboard</h1>
+  </div>
+</div>
+
+    <div id="scorepage">
+      <div id="new-score">
+
+        <p style="display: none;"id="scores"><%- score %></p>
+        <p style="display: none;" id="times"><%- time %></p>
+
+        <p id="score">Score <%- score %>/20</p>
+        <p id="time">Time <%- time %></p>
+      </div>
+
+     
+        
+        <table>
+          <tr>
+            <th>Score (Max 20)</th>
+            <th>Time Taken</th>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="table-scores">
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          
+        </table>
+        
+
+        <!-- <button class="big-button" id="home-button" onclick="location.href = '/home'">Home</button> -->
+
 
     </div>
 <%- include('../partials/footer') %>
+
+
+<script>
+  Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+  }
+  Storage.prototype.getObj = function(key) {
+      return JSON.parse(this.getItem(key))
+  }
+
+  window.onload = function(){
+
+    const score = document.getElementById('scores').innerText;
+    const time = document.getElementById('times').innerText;
+
+    console.log(localStorage.getObj('scores'));
+
+    if(localStorage.getObj('scores')==null){
+        localStorage.setObj('scores', [score]);
+        localStorage.setObj('times', [time]);
+    }
+
+    else{
+        let inserted = false;
+        let index = 0;
+        let newScores = [];
+        let newTimes = [];
+
+        while(index<localStorage.getObj('scores').length){
+
+          console.log("index",index);
+
+          if(inserted==false){
+
+            if(score>localStorage.getObj('scores')[index]){
+              newScores.push(score);
+              newTimes.push(time);
+              newScores.push(localStorage.getObj('scores')[index]);
+              newTimes.push(localStorage.getObj('times')[index]);
+              inserted=true;
+            }
+            else if(score==localStorage.getObj('scores')[index] && time<localStorage.getObj('times')) {
+              newScores.push(score);
+              newTimes.push(time);
+              newScores.push(localStorage.getObj('scores')[index]);
+              newTimes.push(localStorage.getObj('times')[index]);
+              inserted=true;
+            }
+
+          }
+          else{
+              newScores.push(localStorage.getObj('scores')[index]);
+              newTimes.push(localStorage.getObj('times')[index]);
+          }
+          
+          index++;
+        }
+
+
+        if(inserted==false && newScores.length<10){
+          
+          newScores.push(score);
+          newTimes.push(time);
+
+        }
+
+        console.log("newScores",newScores);
+        console.log("newTimes",newTimes);
+
+
+
+        localStorage.setObj('scores', newScores);
+        localStorage.setObj('times', newTimes);
+
+    } 
+      
+
+    for(let index=0; index<localStorage.getObj('scores').length; ++index) {
+      console.log(index);
+      document.getElementsByClassName('table-scores')[index].children[0].innerText = localStorage.getObj('scores')[index];
+      document.getElementsByClassName('table-scores')[index].children[1].innerText = localStorage.getObj('times')[index];  
+
+   }
+
+  }
+  
+  
+
+
+  </script>

@@ -9,6 +9,10 @@
   }
   
   @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+  @font-face{
+    font-family: 'Retro';
+    src: url(NineteenNinetySeven-11XB.ttf);
+  }
   * {
     box-sizing: border-box;
   }
@@ -18,107 +22,101 @@
   html, body {
     height: 100%;
     margin: 0;
+    font-family: 'Retro';
     background: var(--backgroundColor);
   }
-
-  @font-face{
-    font-family: 'Retro';
-    src: url(NineteenNinetySeven-11XB.ttf);
-}
-
-  #box{
-    text-align: center;
-    margin: 4% 3%;
-    font-family: 'Retro';
-}
-
-  #head, #head-top {
+  .navbar{
+    top: 0;
+    width: 100%;
+    background-color: var(--colorShadeA);
+    color: var(--colorShadeE);
+    border: ridge 2px var(--colorShadeC);
     display: flex;
+      flex-direction: row;
+      align-items: center;
+  }
+    .back {
+      width: 70px;
+      height: 70px;
+      border: 2px dotted var(--colorShadeE);
+      display: flex;
       justify-content: center;
- }
+      align-items: center;
+      background: var(--colorShadeB);
+      font-size: 60px;
+      text-decoration: none;
+  }
+    .back:hover {
+      background: var(--colorShadeE);
+      color: var(--colorShadeB);
 
-   #head-top{
-    background-color: var(--colorShadeB);
-    height: 10vh;
-    width: auto;
+    }
+    .back:active{
+      text-decoration: none;
+    }
+
+  .menu{
+    height: 70px;
+    margin: 0px;
+    margin-left: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #timer{
+    background: var(--colorShadeE);
+    color: var(--colorShadeB);
+    border: 2px solid var(--colorShadeB);
+    padding: 5px;
+    border-radius: 20%;
   }
 
+  /*********************************************** intro/authentication.ejs ****************************************************/
+
    #prompt {
+    margin: 50px;
     color: var(--colorShadeB);
     font-size: 18pt;
     text-align: center;
   }
 
-    .profile {
-      height: fit-content;
-      width: fit-content;
+  #input-name{
+    display: flex;
+    justify-content: center;
+  }
+  #username{
+    border: var(--colorShadeE) solid 3px;
+    text-align: center;
+    border-radius: 20px;
+    height: 5vh;
+    outline: none;
+  }
+  #avatars{
+    margin: 50px auto 50px auto;
+    display: flex;
+    flex-direction: row;
+  }
+    .avatar {
       border: var(--colorShadeA) solid 2px;
-        border-radius: 50%;
+      border-radius: 50%;
       background-color: var(--colorShadeB);
+      outline: none;
       margin: auto;
     }
+    .avatar img{
+      border-radius: 50%;
 
-        .profile img{
-            border-radius: 50%;
-        }
+      width: 100px;
+      height: 100px;
+    }
+    .avatar:hover{
+      background-color: var(--colorShadeA);
+      cursor: pointer;
+    }
 
-        #content{
-            border-radius: 20px;
-        }
+  /*********************************************** button  ****************************************************/
 
-        .user-info{
-          display: flex;
-            justify-content: center;
-        }
-
-        .user-info li {
-            margin: 2%; 
-            list-style-type: none;
-        }
-
-          #username{
-              border: var(--colorShadeE) solid 3px;
-                border-radius: 20px;
-              height: 3vh;
-          }
-
-          .btn {
-              width: 250px;
-              height: 30px;
-              background-color: var(--colorShadeE);
-              border-radius: 12px;
-              border: var(--colorShadeC) solid 3px;
-          }
-
-
-  #landing-page{
-    height:100vh;
-    width: 100%;
-     font-family: 'OpenSans', sans-serif;
-    font-size: 10px;
-    line-height: 1.6;
-    display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-  }
-  #logo{
-    border: 5px white outset;
-    text-align: center;
-    width: 80%;
-    height: 50%;
-    top: 10px;
-    position : fixed;
-  }
-  #choose-mood{
-    z-index: 1;
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    align-items: center;
-    bottom: 20px;
-  }
-  
   .big-button {
     width: 250px;
     height: 50px;
@@ -177,7 +175,38 @@
         box-shadow: 0 0 0 1px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
   
   }
-  
+
+/*********************************************** intro/index.ejs ****************************************************/
+ 
+
+#landing-page{
+  height:100vh;
+  width: 100%;
+   font-family: 'OpenSans', sans-serif;
+  font-size: 10px;
+  line-height: 1.6;
+  display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+}
+  #logo{
+    border: 5px white outset;
+    text-align: center;
+    width: 80%;
+    height: 50%;
+    top: 10px;
+    position : fixed;
+  }
+  #choose-mood{
+    z-index: 1;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    bottom: 20px;
+  }
+
   #settings{
     width: 100%;
     position: fixed;
@@ -206,7 +235,10 @@
     transform: translate(0, 0.375em);
   }
 
+  /*********************************************** intro/select.ejs ****************************************************/
+
 #category-page{
+  margin: 80px auto 30px auto;
   width: 100%;
     font-size: 10px;
     line-height: 1.6;
@@ -219,8 +251,8 @@
     width: 70%;
     z-index: 1;
     position: relative;
-    background-color: purple;
-    border: 10px solid var(--colorShadeB);
+    background-color: var(--colorShadeB);
+    border: 10px solid var(--colorShadeE);
       border-radius: 37px;
     display: flex;
       justify-content: space-between;
@@ -231,14 +263,14 @@
       position: absolute;
       top: 0;
       right: 0;
-      border-top: 100px solid var(--colorShadeB);
+      border-top: 100px solid var(--colorShadeE);
       border-left: 100px solid var(--colorShadeA);
       width: 0;
     }
     .category{
       margin: 20px;
       margin-left: 50px;
-      border: 2px var(--colorShadeB) solid; 
+      border: 2px var(--colorShadeE) solid; 
       border-left: none;
       width: 450px;
       display: flex;
@@ -260,10 +292,12 @@
           height: 100px;
           float: left;
           margin-right: 15px;
-          background: var(--colorShadeB) ;
+          background: white;
           border: 2px dotted var(--colorShadeE);
           /* border-radius: 50%; */
       }
+
+/*********************************************** game/index.ejs ****************************************************/
 
 fieldset{
   margin:20px 20px 20px 20px;
@@ -289,3 +323,45 @@ fieldset{
 .choices{
   font: 10px 'Retro';
 }
+
+/*********************************************** game/score.ejs ****************************************************/
+#scorepage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+  #new-score{
+    border: 2px var(--colorShadeB) solid;
+    color: var(--colorShadeE);
+    background-color: var(--colorShadeC);
+    width: 40%;
+    height: 30px;
+    padding: 0px;
+    margin: 20px;
+    display: flex;
+    line-height: 0px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+  }
+  table {
+    border-collapse: collapse;
+    width: 50%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    color: var(--colorShadeE);
+    text-align: center;
+    padding: 4px;
+  }
+  tr:nth-child(odd) {
+    background-color: var(--colorShadeA);
+  }
+  tr:nth-child(even) {
+    background-color: var(--colorShadeB);
+  }
+  #home-button{
+    width: 100px;
+  }

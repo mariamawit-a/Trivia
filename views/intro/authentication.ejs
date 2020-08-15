@@ -1,31 +1,56 @@
 <%- include('../partials/header') %>
 
-  <div id="head"> <img src="Assets/RetroBack.png"> </div>
+  <script>
+          //localStorage.clear();
+
+    if(localStorage.getItem('user')!=null)
+    {
+      location.href = '/home';
+    }
+  </script>
+  <div class="navbar"> OTRIVIA </div>
   <div id="box">
     <h4 id="prompt"> Type Your Name Below and Choose an Avatar: </h4>
-  
+    <div id="input-name">
+      <input type="text" id="username" name="user_name" placeholder="Username">
+    </div>
     <!--The Users Profile Avatar-->
-    <div class="profile"> 
-      <img src="https://imagizer.imageshack.com/img924/1254/kuGFwD.png">  
+    <div id="avatars"> 
+      <button onclick="avatar(this.id)" id="avatar1"  class="avatar">
+        <img src="https://imagizer.imageshack.com/img924/2336/qn8zdT.png"> 
+      </button>
+      <button onclick="avatar(this.id)" id="avatar2" class="avatar">
+        <img src="https://imagizer.imageshack.com/img922/8441/69G1dr.png"> 
+      </button>
+      <button onclick="avatar(this.id)" id="avatar3" class="avatar">
+        <img src="https://imagizer.imageshack.com/img922/7828/RcMA5F.png"> 
+      </button>
+      <button onclick="avatar(this.id)" id="avatar4" class="avatar">
+        <img src="https://imagizer.imageshack.com/img922/3684/gpZvgW.png"> 
+      </button>
+      <button onclick="avatar(this.id)" id="avatar5" class="avatar">
+        <img src="https://imagizer.imageshack.com/img922/9100/rBvOpb.png"> 
+      </button>
+      <button onclick="avatar(this.id)" id="avatar6" class="avatar">
+        <img src="https://imagizer.imageshack.com/img923/5279/9Juwo9.png"> 
+      </button>
+      
+
     </div>
-    <!--Content within the inside of the middle body-->
-     <div id="content">
-      <ul class="user-info">
 
-        <li class="list-item"> 
-          <button class="btn"> Avatar Select</button>
-        </li>
+ </div>
+ <script>
+   function avatar(id){
 
-        <li class="list-item">
-         <input type="text" id="username" name="user_name">
-        </li>
+    if(document.getElementById("username").value==""){
+      alert("Enter a Username");
+      return;
+    }
 
-      </ul>
+      localStorage.setItem("avatar", document.getElementById(id).children[0].getAttribute('src'));
+      localStorage.setItem("user", document.getElementById("username").value);
 
-      <button class="btn"> Play </button>
-     </div>
-    </div>
-  </div>
-  <div id="footer"> </div>
-  
+      location.href = '/home';
+   }
+ </script> 
   <%- include('../partials/footer') %>
