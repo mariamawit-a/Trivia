@@ -26,27 +26,59 @@
         <img src="https://imagizer.imageshack.com/img922/7828/RcMA5F.png"> 
       </button>
       <button onclick="avatar(this.id)" id="avatar4" class="avatar">
-        <img src="https://imagizer.imageshack.com/img922/3684/gpZvgW.png"> 
-      </button>
-      <button onclick="avatar(this.id)" id="avatar5" class="avatar">
         <img src="https://imagizer.imageshack.com/img922/9100/rBvOpb.png"> 
       </button>
-      <button onclick="avatar(this.id)" id="avatar6" class="avatar">
+      <button onclick="avatar(this.id)" id="avatar5" class="avatar">
         <img src="https://imagizer.imageshack.com/img923/5279/9Juwo9.png"> 
       </button>
+      <button onclick="avatar(this.id)" id="avatar0" class="avatar">
+        <img src="" id="image-preview">
+        <p id="default-preview">preview</p>
+      </button>
+      <button class="avatar" id="image-form">
+        <input id="addAvatar" type="file" accept="image/*" capture="camera" title="Upload Avatar">
+      </button>
       
-
     </div>
 
  </div>
+
  <script>
+
+    const preview = document.getElementById("image-preview");
+    const inpAvatar = document.getElementById("addAvatar");
+    const previewText = document.getElementById("default-preview");
+
+    inpAvatar.addEventListener("change", function() {
+      const photo = this.files[0];
+
+      if(photo){
+        const reader = new FileReader();
+
+          reader.addEventListener("load", function(){
+          preview.setAttribute("src", this.result);
+          previewText.style.display = "none"
+          preview.style.display = "block"; 
+        });
+
+        reader.readAsDataURL(photo);
+      }
+      else{
+        alert("Choose an Image File");
+      }
+
+    });
+
    function avatar(id){
 
     if(document.getElementById("username").value==""){
-      alert("Enter a Username");
+      alert("Enter a Username.");
       return;
     }
-
+    if(document.getElementById("username").value==""){
+      alert("Upload an avatar or choose one.");
+      return;
+    }
       localStorage.setItem("avatar", document.getElementById(id).children[0].getAttribute('src'));
       localStorage.setItem("user", document.getElementById("username").value);
 

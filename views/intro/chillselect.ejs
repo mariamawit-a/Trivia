@@ -1,4 +1,6 @@
 <%- include('../partials/header') %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <%
 var imgArray = new Array();
@@ -46,13 +48,134 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
     <% }) %> 
     </div>
     <div id="settings">
-        <button class="setting"><img src="https://imagizer.imageshack.com/img922/4830/RW4eT2.png"/></button>
-        <button class="setting"><img id="useravatar" src="https://imagizer.imageshack.com/v2/100x150q90/922/1gOV5O.png"></button>
+        <button type="button" class="setting" data-toggle="modal" data-target="#instruction"><img src="https://imagizer.imageshack.com/img922/4830/RW4eT2.png"/></button>
+        <button type="button" class="setting" data-toggle="modal" data-target="#profile"><img id="useravatar"src="https://imagizer.imageshack.com/v2/100x150q90/922/1gOV5O.png"></button>
+  
+      </div>
+  
+      <!-- Modals begin-->
+      <div class="modal fade" id="instruction" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">INSTRUCTIONS</h4>
+            </div>
+            <div class="modal-body">
+              <h4>Chill Mode</h4>
+                <p>
+                  We all need to chill sometimes. Chill Mode is where time doesn't matter and wrong answers don't cost you a point! Choose from the list of catagories. Attempt 20 questions. When you feel like it is time to reveal the right answers, click the show button. Reward yourself if you had it right, and if not, hey you learned something new today!
+                </p>
+              <h4>Party of One</h4>
+              <p>
+                Are you up for some challenge? Then you should join a Part of One! Choose from a list of catagories. Attempt to answer 20 question within three minute. And see if you can beat your previous scores. If you finish before time ends, you can hit the submit button as the same scores are differed by the time taken.   
+              </p>
+              <h4>Join the Party (Coming soon!)</h4>
+              <p>
+                Some alone time is good, but a party is never a party without the guests. Join some friends for a live trivia night and keep the party going!
+              </p>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div> -->
+          </div>
+          
+        </div>
+      </div>
+  
+      <div class="modal fade" id="profile" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" id="user">Welcome User!</h4>
+            </div>
+            <div class="modal-body">
+              <h4>Scoreboard</h4>
+  
+              <table>
+                <tr>
+                  <th>Score (Max 20)</th>
+                  <th>Time Taken</th>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="table-scores">
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                
+              </table>
+  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="reset" onclick="reset()">Reset Game</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    <!-- Modals end -->
+  
     </div>
-</div>
-
-<script>
-
-    document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
-</script>
+  
+    <script>
+      
+      document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
+      document.getElementById('user').innerText= "Welcome "+localStorage.getItem('user')+"!";
+  
+      Storage.prototype.getObj = function(key) {
+        return JSON.parse(this.getItem(key))
+      }
+  
+      for(let index=0; index<localStorage.getObj('scores').length; ++index) {
+        console.log(index);
+        document.getElementsByClassName('table-scores')[index].children[0].innerText = localStorage.getObj('scores')[index];
+        document.getElementsByClassName('table-scores')[index].children[1].innerText = localStorage.getObj('times')[index];  
+      }
+  
+      function reset(){
+        localStorage.clear();
+        location.href = '/';
+      }
+  
+    </script>
 <%- include('../partials/footer') %>
