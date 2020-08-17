@@ -1,4 +1,7 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 <%- include('../partials/header') %>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -42,7 +45,7 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
     <div id="categories">
     <% categories.forEach((category, index) => { %>
             <div onclick="location.href = '/games/chill/<%= category.id %>'" class="category">
-                <img src= <%- imgArray[index] %> />
+                <img src =<%- imgArray[index] %> title="<%- category.name %>" alt="<%- category.name %>"/>
                 <p><%- category.name %></p>
             </div>
     <% }) %> 
@@ -95,11 +98,10 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
               <h4 class="modal-title" id="user">Welcome User!</h4>
             </div>
             <div class="modal-body">
-              <h4>Scoreboard</h4>
   
               <table>
                 <tr>
-                  <th>Score (Max 20)</th>
+                  <th>Score (Max 10)</th>
                   <th>Time Taken</th>
                 </tr>
                 <tr class="table-scores">
@@ -147,7 +149,7 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
   
             </div>
             <div class="modal-footer">
-              <button type="button" class="reset" onclick="reset()">Reset Game</button>
+              <button type="button" id="reset" onclick="reset()">Reset Game</button>
             </div>
           </div>
           

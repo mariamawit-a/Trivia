@@ -16,7 +16,7 @@ router.get('/:categoryid', async (req, res, next) => {
   
     try {
       const reponse = await axios.get(
-        `https://opentdb.com/api.php?amount=20&category=${categoryid}&type=multiple`,
+        `https://opentdb.com/api.php?amount=10&category=${categoryid}&type=multiple`,
       );
       res.render('games/index', {questions: reponse.data.results});
     } catch (e) {
@@ -30,7 +30,7 @@ router.get('/:categoryid', async (req, res, next) => {
   
     try {
       const reponse = await axios.get(
-        `https://opentdb.com/api.php?amount=20&category=${categoryid}&type=multiple`,
+        `https://opentdb.com/api.php?amount=10&category=${categoryid}&type=multiple`,
       );
       res.render('games/chill', {questions: reponse.data.results});
     } catch (e) {
@@ -57,7 +57,7 @@ router.post('/submit/:timeleft', async(req, res, next) => {
 
   //get the time left and compute the time taken
   const{timeleft} = req.params;
-  const timetaken = 180000-timeleft;
+  const timetaken = 60000-timeleft;
   const minutes = Math.floor((timetaken % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timetaken % (1000 * 60)) / 1000);
   

@@ -28,21 +28,21 @@
   .navbar{
     top: 0;
     width: 100%;
-    background-color: var(--colorShadeA);
     color: var(--colorShadeE);
-    border: ridge 2px var(--colorShadeC);
+    border: ridge 2px var(--colorShadeE);
     display: flex;
       flex-direction: row;
       align-items: center;
   }
     .back {
+      background-color: var(--colorShadeC);
+
       width: 70px;
       height: 70px;
       border: 2px dotted var(--colorShadeE);
       display: flex;
       justify-content: center;
       align-items: center;
-      background: var(--colorShadeB);
       font-size: 60px;
       text-decoration: none;
   }
@@ -58,25 +58,21 @@
   .menu{
     height: 70px;
     margin: 0px;
-    margin-left: 25%;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
-  #timer{
-    background: var(--colorShadeE);
-    color: var(--colorShadeB);
-    border: 2px solid var(--colorShadeB);
-    padding: 5px;
-    border-radius: 20%;
-  }
+    .menu h1{
+      font-size: 20px;
+    }
 
   /*********************************************** intro/authentication.ejs ****************************************************/
 
-   #prompt {
-    margin: 50px;
-    color: var(--colorShadeB);
+   .prompt {
+     font-family: sans-serif;
+    margin-top: 30px;
+    color: white;
     font-size: 18pt;
     text-align: center;
   }
@@ -87,44 +83,49 @@
   }
   #username{
     border: var(--colorShadeE) solid 3px;
-    text-align: center;
     border-radius: 20px;
     height: 5vh;
     outline: none;
   }
   #avatars{
-    margin: 50px auto 50px auto;
+    margin: 50px auto 10px auto;
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
     .avatar {
       border: var(--colorShadeA) solid 2px;
       border-radius: 50%;
       background-color: var(--colorShadeB);
       outline: none;
-      margin: auto;
-      padding: 2px;
-      width: 110px;
-      height: 110px;
+      overflow: hidden;
+      margin: 5px;
+      padding-left: 0.5%;
+      width: 80px;
+      height: 80px;
     }
     .avatar img{
-      border-radius: 50%;
-
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
     }
     .avatar:hover{
       background-color: var(--colorShadeA);
       cursor: pointer;
     }
-
-    #image-preview{
-      display: none;
+  #avatarUpload{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+    #avatar0{
+      margin: 0px 5px;
     }
+      #image-preview{
+        display: none;
+      }
     #image-form {
-      width: 110px;
-      height: 110px;
       background: url("https://imagizer.imageshack.com/v2/100x75q90/922/NtCrwx.png") center no-repeat;
+      margin: 0px 5px;
     }
       #image-form:hover{
         cursor: pointer;
@@ -132,10 +133,9 @@
       }
       #addAvatar {
         border-radius: 50%;
-        width: 110px;
-        height: 110px;
+        width: 90px;
+        height: 90px;
         -webkit-appearance:none; 
-        position:relative;
         opacity:0; 
       }
   /*********************************************** button  ****************************************************/
@@ -200,12 +200,11 @@
   }
 
 /*********************************************** intro/index.ejs ****************************************************/
- 
+
 
 #landing-page{
   height:100vh;
   width: 100%;
-   font-family: 'OpenSans', sans-serif;
   font-size: 10px;
   line-height: 1.6;
   display: flex;
@@ -214,9 +213,8 @@
           justify-content: center;
 }
   #logo{
-    border: 5px white outset;
     text-align: center;
-    width: 80%;
+    width: 100%;
     height: 50%;
     top: 10px;
     position : fixed;
@@ -227,7 +225,7 @@
     position: fixed;
     flex-direction: column;
     align-items: center;
-    bottom: 20px;
+    margin-top: 20%;
   }
 
   #settings{
@@ -248,9 +246,30 @@
   }
   
   .setting img{
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .setting{
+      padding: 0px;
       border-radius: 50%;
+      outline: none;
+      border: 2px solid var(--colorShadeA);
+      bottom: 0;
+      background: var(--colorShadeB);
+    }
+      .setting img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .category{
+      width: 190px;
+    }
+    #categories{
+      width: 80%;
+    }
   }
   
   button.setting:hover {
@@ -266,10 +285,11 @@
         background-color: var(--backgroundColor);
       }
         .modal-header .close{
-          color: var(--colorShadeB);
+          color: white;
         }
       .modal-body{
         background-color: var(--colorShadeC);
+        font-family: sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -287,7 +307,7 @@
   /*********************************************** intro/select.ejs ****************************************************/
 
 #category-page{
-  margin: 80px auto 30px auto;
+  margin: 20px auto 30px auto;
   width: 100%;
     font-size: 10px;
     line-height: 1.6;
@@ -297,80 +317,97 @@
           justify-content: center;
 }
   #categories{
-    width: 70%;
-    z-index: 1;
+    padding: 2px;
     position: relative;
-    background-color: var(--colorShadeB);
-    border: 10px solid var(--colorShadeE);
-      border-radius: 37px;
+    width: 90%;
+    z-index: 1;
     display: flex;
-      justify-content: space-between;
-      flex-direction: column;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
   }
-    #categories::after{
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      border-top: 100px solid var(--colorShadeE);
-      border-left: 100px solid var(--colorShadeA);
-      width: 0;
-    }
+   
     .category{
-      margin: 20px;
-      margin-left: 50px;
-      border: 2px var(--colorShadeE) solid; 
+      font-family: sans-serif;
+      margin: 2px;
+      border: 1px var(--colorShadeE) solid; 
       border-left: none;
-      width: 450px;
+      width: 250px;
+      height: 35px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      font-family: 'Retro';
-      font-size: 15px;
+      font-size: 10px;
       color: var(--colorShadeE); 
-      background-color: var(--colorShadeA);
     }
+     
+      .category img {
+          width: 15%;
+          height: 100%;
+          float: left;
+          background: white;
+          border: 0.5px dotted var(--colorShadeE);
+      }
+
       .category:hover{
         cursor: pointer;
         background-color: var(--colorShadeE);
         color: var(--colorShadeA); 
       }
+  /*********************************************** intro/coming.ejs ****************************************************/
+#comingSoon img{
+  margin: auto;
+  height: 100%;
+  width: 100%;
 
-      .category img {
-          width: 100px;
-          height: 100px;
-          float: left;
-          margin-right: 15px;
-          background: white;
-          border: 2px dotted var(--colorShadeE);
-          /* border-radius: 50%; */
-      }
+}
+
 
 /*********************************************** game/index.ejs ****************************************************/
 
+#timer{
+  margin-left: 30px;
+  background: var(--colorShadeE);
+  color: var(--colorShadeB);
+  border: 2px solid var(--colorShadeB);
+  padding: 5px;
+  border-radius: 20%;
+}
+
+form{
+  background-color: var(--colorShadeA);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 fieldset{
-  margin:20px 20px 20px 20px;
+  background-color: var(--backgroundColor);
+  color: var(--colorShadeE);
+  border: 2px solid var(--colorShadeE);
+  margin-top: 10px;
   width:90%;
-  background-color: var(--colorShadeB);
   border-radius: 20px;
 }
   fieldset .question{
-    background-color: var(--colorShadeE);
-    font-family: 'Retro';
-    font-size: 12px;
+    font-family: sans-serif;
+    font-size: 10px;
 
   }
 
   form .big-button{
     text-align: center;
-    margin: 20px 35%;
+  
   }
     form .big-button:hover{
       background-color: var(--colorShadeB);
     }
 
 .choices{
-  font: 10px 'Retro';
+  font-family: sans-serif;
+  font-size: 8px;
 }
 
 /*********************************************** game/score.ejs ****************************************************/
@@ -396,7 +433,7 @@ fieldset{
   }
   table {
     border-collapse: collapse;
-    width: 50%;
+    width: 80%;
   }
 
   td, th {

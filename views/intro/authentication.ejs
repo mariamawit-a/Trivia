@@ -10,27 +10,30 @@
   </script>
   <div class="navbar"> OTRIVIA </div>
   <div id="box">
-    <h4 id="prompt"> Type Your Name Below and Choose an Avatar: </h4>
+    <h4 class="prompt"> Type Your Username Below: </h4>
     <div id="input-name">
       <input type="text" id="username" name="user_name" placeholder="Username">
     </div>
+    <h4 class="prompt"> Choose an Avatar: </h4>
     <!--The Users Profile Avatar-->
     <div id="avatars"> 
       <button onclick="avatar(this.id)" id="avatar1"  class="avatar">
-        <img src="https://imagizer.imageshack.com/img924/2336/qn8zdT.png"> 
+        <img src="https://imagizer.imageshack.com/img923/6269/CAS3nf.png"> 
       </button>
       <button onclick="avatar(this.id)" id="avatar2" class="avatar">
-        <img src="https://imagizer.imageshack.com/img922/8441/69G1dr.png"> 
+        <img src="https://imagizer.imageshack.com/img924/7995/KvViBx.png"> 
       </button>
       <button onclick="avatar(this.id)" id="avatar3" class="avatar">
-        <img src="https://imagizer.imageshack.com/img922/7828/RcMA5F.png"> 
+        <img src="https://imagizer.imageshack.com/img923/5628/cByKp9.png"> 
       </button>
       <button onclick="avatar(this.id)" id="avatar4" class="avatar">
-        <img src="https://imagizer.imageshack.com/img922/9100/rBvOpb.png"> 
+        <img src="https://imagizer.imageshack.com/img922/4928/UQFrY2.png"> 
       </button>
       <button onclick="avatar(this.id)" id="avatar5" class="avatar">
-        <img src="https://imagizer.imageshack.com/img923/5279/9Juwo9.png"> 
+        <img src="https://imagizer.imageshack.com/img922/3670/7qATtp.png"> 
       </button>
+    </div>
+    <div id="avatarUpload">
       <button onclick="avatar(this.id)" id="avatar0" class="avatar">
         <img src="" id="image-preview">
         <p id="default-preview">preview</p>
@@ -38,9 +41,9 @@
       <button class="avatar" id="image-form">
         <input id="addAvatar" type="file" accept="image/*" capture="camera" title="Upload Avatar">
       </button>
-      
-    </div>
 
+    </div>
+    
  </div>
 
  <script>
