@@ -250,7 +250,7 @@
       height: 80px;
   }
 
-  /* @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 700px) {
     .setting{
       padding: 0px;
       border-radius: 50%;
@@ -270,7 +270,7 @@
     #categories{
       width: 80%;
     }
-  } */
+  }
   
   button.setting:hover {
     background: var(--colorShadeE);
