@@ -10,8 +10,8 @@ window.snapKitInit = function () {
     var loginButtonIconId = 'my-login-button-target';
     // Mount Login Button
     snap.loginkit.mountButton(loginButtonIconId, {
-      clientId: '64b37b2b-8cb3-41a3-a7aa-e405764f53af', /*YOU CHANGE: Must be changed to the development client ID on snapckit*/
-      redirectURI: 'https://maria-a-snake.glitch.me/', /*YOU CHANGE: Must be changed to your glitch project's url AND added as the redirect URI on snapkit */
+      clientId: '95f7eb87-b295-42bd-aed5-2126be35c87f', /*YOU CHANGE: Must be changed to the development client ID on snapckit*/
+      redirectURI: 'https://otriviagame.herokuapp.com/', /*YOU CHANGE: Must be changed to your glitch project's url AND added as the redirect URI on snapkit */
       scopeList: [
         'user.display_name',
         'user.bitmoji.avatar',
@@ -27,7 +27,7 @@ window.snapKitInit = function () {
             var bitmoji_avatar_url = data.data.me.bitmoji.avatar;
             localStorage.setItem("avatarurl", bitmoji_avatar_url);
             //and redirect the user to the game.html
-            location.href="game.html"
+            location.href="/home"
         });
       },
     });
