@@ -1,5 +1,4 @@
 <%- include('../partials/header') %>
-<script src="/index-login.js" defer></script>
 
   <script>
           //localStorage.clear();
@@ -10,7 +9,13 @@
     }
   </script>
   <div class="navbar"> OTRIVIA </div>
+
+  
   <div id="box">
+    <div id="snaplogin">
+      <div id="my-login-button-target"/>
+    </div>
+
     <h4 class="prompt"> Type Your Username Below: </h4>
     <div id="input-name">
       <input type="text" id="username" name="user_name" placeholder="Username">
@@ -43,11 +48,9 @@
         <input id="addAvatar" type="file" accept="image/*" capture="camera" title="Upload Avatar">
       </button>
 
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-      <div id="my-login-button-target">h<div>
-
+      <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     </div>
+    
     
  </div>
 
@@ -93,4 +96,55 @@
       location.href = '/home';
    }
  </script> 
+
+<script>
+  /* 
+login.js
+
+This code handles the process so users can log in to Snake Squad using their Snap accounts on index.html. 
+Once logged in, the program redirects to game.html 
+It's mostly adapted from SnapKit documentation. There are only two places that you need to change. 
+*/
+
+window.snapKitInit = function () {
+var loginButtonIconId = 'my-login-button-target';
+// Mount Login Button
+snap.loginkit.mountButton(loginButtonIconId, {
+clientId: '95f7eb87-b295-42bd-aed5-2126be35c87f', /*YOU CHANGE: Must be changed to the development client ID on snapckit*/
+redirectURI: 'https://otriviagame.herokuapp.com/', /*YOU CHANGE: Must be changed to your glitch project's url AND added as the redirect URI on snapkit */
+scopeList: [
+  'user.display_name',
+  'user.bitmoji.avatar',
+],
+//Once snapchat logs user in, this funciton is run: 
+handleResponseCallback: function() {
+  snap.loginkit.fetchUserInfo()
+    .then(function(data) {
+      //Once snapchat logs us in, we can...
+      //have access to user data. Inspect the web page to see this!...
+      console.log('User info:', data)        
+      // store user data in localStorage...
+      var bitmoji_avatar_url = data.data.me.bitmoji.avatar;
+      var user_name = data.data.me.displayName;
+      localStorage.setItem("user", user_name)
+      localStorage.setItem("avatar", bitmoji_avatar_url);
+      //and redirect the user to the game.html
+      // location.href="/home"
+  });
+},
+});
+};
+
+/* This code is copy-pasted from SnapKit documentation and loads the Snap login SDK asynchronously.*/
+(function (d, s, id) {
+var js, sjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://sdk.snapkit.com/js/v1/login.js";
+sjs.parentNode.insertBefore(js, sjs);
+}(document, 'script', 'loginkit-sdk'));
+
+</script>
   <%- include('../partials/footer') %>
+
+
