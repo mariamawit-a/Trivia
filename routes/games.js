@@ -57,7 +57,7 @@ router.post('/submit/:timeleft', async(req, res, next) => {
 
   //get the time left and compute the time taken
   const{timeleft} = req.params;
-  const timetaken = 60000-timeleft;
+  const timetaken = 120000-timeleft;
   const minutes = Math.floor((timetaken % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timetaken % (1000 * 60)) / 1000);
   

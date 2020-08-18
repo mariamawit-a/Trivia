@@ -10,16 +10,21 @@
   </div>
 </div>
 
+
     <div id="scorepage">
-      <div id="new-score">
 
-        <p style="display: none;"id="scores"><%- score %></p>
-        <p style="display: none;" id="times"><%- time %></p>
+      <div id="avatar_score">
+        <!-- <img  id="useravatar" src="">  -->
 
-        <p id="score">Score <%- score %>/10</p>
-        <p id="time">Time <%- time %></p>
-      </div>
+        <div id="new-score">
 
+          <p style="display: none;"id="scores"><%- score %></p>
+          <p style="display: none;" id="times"><%- time %></p>
+
+          <p id="score">Score <%- score %>/10</p>
+          <p id="time">Time <%- time %></p>
+        </div>
+    </div>
      
         
         <table>
@@ -79,6 +84,10 @@
 
 
 <script>
+
+document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
+
+
   Storage.prototype.setObj = function(key, obj) {
     return this.setItem(key, JSON.stringify(obj))
   }
