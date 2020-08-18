@@ -464,6 +464,7 @@ fieldset{
       font-size: 15px;
     }
     .setting{
+      z-index: 99;
       padding: 0px;
       border-radius: 50%;
       outline: none;
