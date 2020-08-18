@@ -15,62 +15,65 @@
 </script>
 
 
-<div>
+
   <form id="form" onsubmit="return false">
-  <% questions.forEach((question,index) => { %>
-    <fieldset>
-        <div class="question">
-            <%-index+1%>. <%-question.question%>
-        </div>
-        <div id = "choices">
-            <%choices = `choice${index}`%>
-            <div class="choices">
-                <input type="radio" name="choices" value="correct" class="radio">
-                <label class="choice" ><%- question.correct_answer%></label>
-            </div>
-            <% question.incorrect_answers.forEach(i => { %>
-            <div class= "choices">
-                <input type="radio" name="choices" value="incorrect" class="radio">
-                <label class="choice"><%- i %></label>
-            </div>
-            <% }) %>  
-        </div>
-    </fieldset>
-   <script>
+    <div id="questions">
+        <% questions.forEach((question,index) => { %>
+            <fieldset>
+                <div class="question">
+                    <%-index+1%>. <%-question.question%>
+                </div>
+                <div id = "choices">
+                    <%choices = `choice${index}`%>
+                    <div class="choices">
+                        <input type="radio" name="choices" value="correct" class="radio">
+                        <label class="choice" ><%- question.correct_answer%></label>
+                    </div>
+                    <% question.incorrect_answers.forEach(i => { %>
+                    <div class= "choices">
+                        <input type="radio" name="choices" value="incorrect" class="radio">
+                        <label class="choice"><%- i %></label>
+                    </div>
+                    <% }) %>  
+                </div>
+            </fieldset>
+        <script>
 
-        $(function () {
+                $(function () {
 
-            var parents = $("#choices");
-            var divs = parents.children();
+                    var parents = $("#choices");
+                    var divs = parents.children();
 
-            while(divs.length){
-            parents.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
-            }
+                    while(divs.length){
+                    parents.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+                    }
 
-            const name = `choicefor${num}`;
-            document.getElementById('choices').setAttribute('id', 'chosen');
+                    const name = `choicefor${num}`;
+                    document.getElementById('choices').setAttribute('id', 'chosen');
 
-            for(let radionum = 0; radionum<4; ++radionum)
-            {
-                document.getElementsByClassName('radio')[radionum].setAttribute('name', name);
-            }
-            for(let radionum = 0; radionum<4; ++radionum)
-            {
-                document.getElementsByClassName('radio')[0].setAttribute('class', 'radios');
-            }
-                
+                    for(let radionum = 0; radionum<4; ++radionum)
+                    {
+                        document.getElementsByClassName('radio')[radionum].setAttribute('name', name);
+                    }
+                    for(let radionum = 0; radionum<4; ++radionum)
+                    {
+                        document.getElementsByClassName('radio')[0].setAttribute('class', 'radios');
+                    }
+                        
 
 
-            ++num;
-        });           
-    </script>
+                    ++num;
+                });           
+            </script>
 
-    <% }) %> 
+            <% }) %> 
+    </div>    
+    <button onclick='check()' id="fix" class="big-button">Show</button>
 
-    <button style="margin: 0; margin-top:15px;" onclick='check()' class="big-button">Show</button>
 
     </form>
-</div>
+
+
 
 <script>
     function check(){
