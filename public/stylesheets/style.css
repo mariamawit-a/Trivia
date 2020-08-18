@@ -62,11 +62,23 @@
       font-size: 30px;
     }
 
+    #autherization-page{
+      font-family: sans-serif;
+      height: 88vh;
+      border: 2px black solid;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    #box{
+      border-top: 2px solid var(--colorShadeB);
+    }
+
   /*********************************************** intro/authentication.ejs ****************************************************/
 
    .prompt {
      font-family: sans-serif;
-    margin-top: 50px;
+    margin-top: 10px;
     color: white;
     font-size: 30px;
     text-align: center;
@@ -436,6 +448,14 @@ fieldset{
 
 
   @media only screen and (max-width: 900px) {
+    .avatar {
+      width: 80px;
+      height: 80px;
+    }
+    .avatar img{
+      width: 60px;
+      height: 60px;
+    }
     .modal-dialog{
       margin-top: 10vh;
       width: 400px;
@@ -463,7 +483,7 @@ fieldset{
       width: 70%;
     }
     .category{
-      width: 300px;
+      width: 250px;
       height: 50px;
       font-size: 12px;;
     }

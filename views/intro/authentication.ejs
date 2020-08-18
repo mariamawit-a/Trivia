@@ -8,51 +8,50 @@
       location.href = '/home';
     }
   </script>
-  <div class="navbar"> OTRIVIA </div>
+  <div class="navbar"> 
+    <div class="menu">OTRIVIA</div> 
+  </div>
 
   
-  <div id="box">
+  <div id="autherization-page">
     <div id="snaplogin">
-      <div id="my-login-button-target"/>
+      <div id="my-login-button-target"></div>
     </div>
 
-    <h4 class="prompt"> Type Your Username Below: </h4>
-    <div id="input-name">
-      <input type="text" id="username" name="user_name" placeholder="Username">
+    <div id="box">
+      <p class="prompt">Play as a guest:<p>
+        <div id="input-name">
+          <input type="text" id="username" name="user_name" placeholder="Username">
+        </div>
+        <!--The Users Profile Avatar-->
+        <div id="avatars"> 
+          <button onclick="avatar(this.id)" id="avatar1"  class="avatar">
+            <img src="https://imagizer.imageshack.com/img923/6269/CAS3nf.png"> 
+          </button>
+          <button onclick="avatar(this.id)" id="avatar2" class="avatar">
+            <img src="https://imagizer.imageshack.com/img924/7995/KvViBx.png"> 
+          </button>
+          <button onclick="avatar(this.id)" id="avatar3" class="avatar">
+            <img src="https://imagizer.imageshack.com/img923/5628/cByKp9.png"> 
+          </button>
+          <button onclick="avatar(this.id)" id="avatar4" class="avatar">
+            <img src="https://imagizer.imageshack.com/img922/4928/UQFrY2.png"> 
+          </button>
+          <button onclick="avatar(this.id)" id="avatar5" class="avatar">
+            <img src="https://imagizer.imageshack.com/img922/3670/7qATtp.png"> 
+          </button>
+        </div>
+        <div id="avatarUpload">
+          <button onclick="avatar(this.id)" id="avatar0" class="avatar">
+            <img src="" id="image-preview">
+            <p id="default-preview">preview</p>
+          </button>
+          <button class="avatar" id="image-form">
+            <input id="addAvatar" type="file" accept="image/*" capture="camera" title="Upload Avatar">
+          </button>
+        </div>     
+     </div>
     </div>
-    <h4 class="prompt"> Choose an Avatar: </h4>
-    <!--The Users Profile Avatar-->
-    <div id="avatars"> 
-      <button onclick="avatar(this.id)" id="avatar1"  class="avatar">
-        <img src="https://imagizer.imageshack.com/img923/6269/CAS3nf.png"> 
-      </button>
-      <button onclick="avatar(this.id)" id="avatar2" class="avatar">
-        <img src="https://imagizer.imageshack.com/img924/7995/KvViBx.png"> 
-      </button>
-      <button onclick="avatar(this.id)" id="avatar3" class="avatar">
-        <img src="https://imagizer.imageshack.com/img923/5628/cByKp9.png"> 
-      </button>
-      <button onclick="avatar(this.id)" id="avatar4" class="avatar">
-        <img src="https://imagizer.imageshack.com/img922/4928/UQFrY2.png"> 
-      </button>
-      <button onclick="avatar(this.id)" id="avatar5" class="avatar">
-        <img src="https://imagizer.imageshack.com/img922/3670/7qATtp.png"> 
-      </button>
-    </div>
-    <div id="avatarUpload">
-      <button onclick="avatar(this.id)" id="avatar0" class="avatar">
-        <img src="" id="image-preview">
-        <p id="default-preview">preview</p>
-      </button>
-      <button class="avatar" id="image-form">
-        <input id="addAvatar" type="file" accept="image/*" capture="camera" title="Upload Avatar">
-      </button>
-
-      <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-    </div>
-    
-    
- </div>
 
  <script>
 
@@ -111,7 +110,7 @@ var loginButtonIconId = 'my-login-button-target';
 // Mount Login Button
 snap.loginkit.mountButton(loginButtonIconId, {
 clientId: '95f7eb87-b295-42bd-aed5-2126be35c87f', /*YOU CHANGE: Must be changed to the development client ID on snapckit*/
-redirectURI: 'https://otriviagame.herokuapp.com/', /*YOU CHANGE: Must be changed to your glitch project's url AND added as the redirect URI on snapkit */
+redirectURI: 'http://localhost:3000/', /*YOU CHANGE: Must be changed to your glitch project's url AND added as the redirect URI on snapkit */
 scopeList: [
   'user.display_name',
   'user.bitmoji.avatar',
@@ -129,7 +128,7 @@ handleResponseCallback: function() {
       localStorage.setItem("user", user_name)
       localStorage.setItem("avatar", bitmoji_avatar_url);
       //and redirect the user to the game.html
-      // location.href="/home"
+      location.href="/home"
   });
 },
 });
