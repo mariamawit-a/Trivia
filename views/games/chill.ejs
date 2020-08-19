@@ -16,7 +16,6 @@
 
 
 
-  <form id="form" >
     <div id="questions">
         <% questions.forEach((question,index) => { %>
             <fieldset>
@@ -70,10 +69,9 @@
 
             <% }); %> 
     </div>    
-    <button onclick='check()' id="fix" class="big-button">Peek &#x1F440;</button>
+    <button style="margin-top: 10px; margin-left: 10vw;" onclick='check()' id="fix" class="big-button">Peek &#x1F440;</button>
     <button style="display: none;"type="submit" value="Submit">
 
-    </form>
 
 
 
@@ -89,7 +87,7 @@
             Object.values(document.querySelectorAll('input[value=correct]')).forEach(correct=> {
             correct.checked = false;
             }); 
-         }, 2000);
+         }, 1000);
 
        
 
