@@ -64,24 +64,27 @@
       font-size: 25px;
     }
 
+    /*********************************************** intro/authentication.ejs ****************************************************/
+
     #autherization-page{
       font-family: sans-serif;
-      height: 88vh;
-      border: 2px black solid;
+      height: 90vh;
+      width: 100%;
+      background-color: var(--colorShadeA);
+      border: 2px var(--colorShadeE) solid;
+      border-top: transparent;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
     }
     #box{
-      border-top: 2px solid var(--colorShadeB);
+      border-top: 2px solid var(--colorShadeE);
     }
-
-  /*********************************************** intro/authentication.ejs ****************************************************/
 
    .prompt {
      font-family: sans-serif;
     margin-top: 10px;
-    color: white;
+    color: var(--colorShadeE);
     font-size: 30px;
     text-align: center;
   }
@@ -103,7 +106,7 @@
     justify-content: center;
   }
     .avatar {
-      border: var(--colorShadeA) solid 2px;
+      border: var(--colorShadeE) solid 2px;
       border-radius: 50%;
       background-color: var(--colorShadeB);
       outline: none;
@@ -265,11 +268,15 @@
     transform: translate(0, 0.375em);
   }
     /*********************************************** intro/index.ejs/modals ****************************************************/
-    .modal-dialog{
-      border: white 1px solid;
-      width: 1000px;
+    .modal{
+      border: yellow 2px solid;
+      text-align: center;
+     
+
     }
+   
     .modal-content{
+      width: 110%;
       color: white;
       font-family: 'Retro';
     }
@@ -453,6 +460,10 @@ fieldset{
 
 
   @media only screen and (max-width: 900px) {
+    .avatar {
+      margin: 2px;
+      padding-left: 0;
+    }
     .avatar {
       width: 80px;
       height: 80px;
