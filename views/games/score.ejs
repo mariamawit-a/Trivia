@@ -10,11 +10,24 @@
   </div>
 </div>
 
+<style>
+  #avatar_score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #useravatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+</style>
 
     <div id="scorepage">
 
       <div id="avatar_score">
-        <!-- <img  id="useravatar" src="">  -->
+        <img  id="useravatar" src=""> 
 
         <div id="new-score">
 
@@ -85,7 +98,7 @@
 
 <script>
 
-// document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
+document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
 
 
   Storage.prototype.setObj = function(key, obj) {

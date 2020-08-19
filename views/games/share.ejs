@@ -1,4 +1,84 @@
-<p style="color: green;"> <%- right %> X2</p>
-<p style="color: red;"> <%- wrong %> X1</p>
-<p style="color: blue;"> Points <%- total %></p>
+<%- include('../partials/header') %>
 
+<style>
+    #avatarscore{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    #share-page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height : 80vh;
+        background-color: rgb(48, 23, 82);
+        
+    }
+
+    #share-score{
+        font-family: sans-serif;
+        background-color:rgb(143, 97, 219);
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 12px
+    }
+
+    
+    /* #snap{
+    border-radius: 50%;
+    padding: auto;
+    width:400px;
+    text-decoration: none;
+    border: white 2px solid;
+    } */
+    #snap{
+        margin: 0;
+        font-size: 30px;
+        color: rgb(240, 240, 13);
+        
+    }
+    #snap i{
+        font-size: 40px;
+        
+    }
+
+
+</style>
+
+<div class="navbar"> 
+    <a href='/home' class="back">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    <div class="menu">
+        <h1>OTRIVIA</h1>
+    </div>
+</div>
+<div id="share-page">
+    <div id="avatarscore">
+        <img  id="useravatar" src=""> 
+
+        <div id="new-score">
+
+            <p style="color: green;"> <%- right %> X2</p>
+            <p style="color: red;"> <%- wrong %> X1</p>
+            <p style="color: white;"> Points <%- total %></p>
+        </div>
+
+        <a id="share-score">
+            <p id="snap">Challenge Your Friends  <i class="fa fa-snapchat" aria-hidden="true"></i></p>
+        </a>
+    </div>
+</div>
+<script>
+    document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
+</script>
+
+<%- include('../partials/footer') %>
