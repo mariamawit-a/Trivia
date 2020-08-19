@@ -16,12 +16,12 @@
 
 
 
-  <form id="form" onsubmit="return false">
+  <form id="form" >
     <div id="questions">
         <% questions.forEach((question,index) => { %>
             <fieldset>
                 <div class="question">
-                    <%-index+1%>. <%-question.question%>
+                    <%-question.question%>
                 </div>
                 <div id = "choices">
                     <%choices = `choice${index}`%>
@@ -36,40 +36,42 @@
                     </div>
                     <% }) %>  
                 </div>
+
+                <script>
+
+                    $(function () {
+    
+                        var parents = $("#choices");
+                        var divs = parents.children();
+    
+                        while(divs.length){
+                        parents.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+                        }
+    
+                        const name = `choicefor${num}`;
+                        document.getElementById('choices').setAttribute('id', 'chosen');
+    
+                        for(let radionum = 0; radionum<4; ++radionum)
+                        {
+                            document.getElementsByClassName('radio')[radionum].setAttribute('name', name);
+                        }
+                        for(let radionum = 0; radionum<4; ++radionum)
+                        {
+                            document.getElementsByClassName('radio')[0].setAttribute('class', 'radios');
+                        }
+                            
+    
+    
+                        ++num;
+                    });           
+                </script>
             </fieldset>
-        <script>
+       
 
-                $(function () {
-
-                    var parents = $("#choices");
-                    var divs = parents.children();
-
-                    while(divs.length){
-                    parents.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
-                    }
-
-                    const name = `choicefor${num}`;
-                    document.getElementById('choices').setAttribute('id', 'chosen');
-
-                    for(let radionum = 0; radionum<4; ++radionum)
-                    {
-                        document.getElementsByClassName('radio')[radionum].setAttribute('name', name);
-                    }
-                    for(let radionum = 0; radionum<4; ++radionum)
-                    {
-                        document.getElementsByClassName('radio')[0].setAttribute('class', 'radios');
-                    }
-                        
-
-
-                    ++num;
-                });           
-            </script>
-
-            <% }) %> 
+            <% }); %> 
     </div>    
-    <button onclick='check()' id="fix" class="big-button">Show</button>
-
+    <button onclick='check()' id="fix" class="big-button">Peek &#x1F440;</button>
+    <button style="display: none;"type="submit" value="Submit">
 
     </form>
 
@@ -79,9 +81,22 @@
     function check(){
 
         Object.values(document.querySelectorAll('input[value=correct]')).forEach(correct=> {
+            console.log("hello")
             correct.checked = true;
-        })
+        });
+
+        setTimeout(function(){  
+            Object.values(document.querySelectorAll('input[value=correct]')).forEach(correct=> {
+            correct.checked = false;
+            }); 
+         }, 2000);
+
+       
+
+
+
     }
+    
 </script>
 
 

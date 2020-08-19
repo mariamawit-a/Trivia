@@ -19,6 +19,7 @@
     font-family: 'Retro';
     background: var(--backgroundColor);
   }
+  
   .navbar{
     top: 0;
     font-size: 30px;
@@ -507,6 +508,7 @@ fieldset{
           /* background-color: rgb(143, 97, 219); */
         
       }
+    
   
     form{
       height: 83vh;
@@ -516,19 +518,25 @@ fieldset{
       overflow-y: hidden;
       max-height: 83vh;
       
+
     }
     #questions{
-      margin: auto;
-      overflow-y: hidden;
-      height: 80vh;
-      padding-top: 100px; 
-      display: inline-block;
-      white-space: nowrap;
+      display: flex;
       overflow: auto;
+      flex: none;
+      width: 100%;
+      height: 420px;
+      flex-flow: row nowrap;
+      scroll-snap-type: x mandatory;
     }
     
+    ::-webkit-scrollbar {
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+
     #fix{
-      margin-top: 200px;
+      margin-top: 210px;
       width: 80%;
       position: fixed;
     }
@@ -539,12 +547,12 @@ fieldset{
 
     }
      fieldset{
-      display: inline-flex;
-      width: 80vw;
-      
-       margin: 15px;
-       height: auto;
-      overflow: hidden;
+      margin-top: 100px;
+      text-align: left;
+      scroll-snap-align: center;
+      flex: none;
+      width: 90%;
+      height: 150px;
      }
       fieldset .question{
         height: 50px;
