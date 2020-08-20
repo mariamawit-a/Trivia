@@ -238,7 +238,7 @@
     position: fixed;
     flex-direction: column;
     align-items: center;
-    margin-top: 30%;
+    margin-top: 20%;
   }
 
   #settings{
@@ -271,12 +271,13 @@
     .modal{
       border: yellow 2px solid;
       text-align: center;
+      width: 100%;
+      
      
 
     }
    
     .modal-content{
-      width: 110%;
       color: white;
       font-family: 'Retro';
     }
@@ -333,7 +334,8 @@
    
     .category{
       background-color: var(--colorShadeA);
-
+      box-shadow: 2px 2px var(--colorShadeA), 3px 3px var(--colorShadeB), 4px 4px var(--colorShadeE);
+      /* box-shadow: 1px 2px 0px 10px rgba(46, 229, 157, 0.4); */
       font-family: sans-serif;
       border-left: none;
       width: 600px;
@@ -341,7 +343,7 @@
       justify-content: center;
       flex-direction: row;
       align-items: center;
-      font-size: 20px;
+      font-size: 30px;
       color: var(--colorShadeE); 
     }
      
@@ -446,16 +448,17 @@ fieldset{
   }
 
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid var(--colorShadeE);
     color: var(--colorShadeE);
     text-align: center;
     padding: 4px;
   }
   tr:nth-child(odd) {
-    background-color: var(--colorShadeA);
+    background-color: var(--backgroundColor);
+
   }
   tr:nth-child(even) {
-    background-color: var(--colorShadeB);
+    background-color: var(--colorShadeA);
   }
   #home-button{
     width: 100px;
@@ -502,13 +505,13 @@ fieldset{
       width: 70%;
     }
     .category{
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       padding-bottom: 0px;
       text-align: center;
       border: 2px solid var(--colorShadeE);
       border-radius: 1%;
       width: 100%;
-      font-size: 12px;
+      font-size: 15px;
     }
     #categories{
       width: 60%;

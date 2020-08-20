@@ -98,6 +98,8 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
               <h4 class="modal-title" id="user">Welcome User!</h4>
             </div>
             <div class="modal-body">
+
+              <img  id="useravatarin" src=""> 
   
               <table>
                 <tr>
@@ -162,6 +164,8 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
     <script>
       
       document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
+      document.getElementById('useravatarin').setAttribute('src', localStorage.getItem('avatar'));
+
       document.getElementById('user').innerText= "Welcome "+localStorage.getItem('user')+"!";
   
       Storage.prototype.getObj = function(key) {
