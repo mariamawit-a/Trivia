@@ -272,7 +272,7 @@
       border: yellow 2px solid;
       text-align: center;
       width: 100%;
-      
+
      
 
     }
@@ -469,6 +469,10 @@ fieldset{
     .avatar {
       margin: 2px;
       padding-left: 0;
+    }
+    .useravatarin{
+      width:100px;
+      height: 100px;
     }
     .avatar {
       width: 80px;
