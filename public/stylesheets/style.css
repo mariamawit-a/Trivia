@@ -249,12 +249,15 @@
     margin-top: 20%;
   }
 
-  #settings{
+  .settings{
     width: 100%;
     position: fixed;
     bottom: 5px;
     display: flex;
     justify-content: space-between;
+  }
+  #stay{
+    position: absolute;
   }
   
   .setting{
