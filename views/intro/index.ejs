@@ -62,7 +62,7 @@
             <h4 class="modal-title" id="user">Welcome User!</h4>
           </div>
           <div class="modal-body">
-            <img  id="useravatarin" src=""> 
+            <img  id="normalavatar" class="useravatar" src=""> 
             <table>
               <tr>
                 <th>Score (Max 10)</th>
@@ -124,7 +124,7 @@
   </div>
 
   <script>
-    document.getElementById('useravatarin').setAttribute('src', localStorage.getItem('avatar'));
+    document.getElementById('normalavatar').setAttribute('src', localStorage.getItem('avatar'));
     document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
     document.getElementById('user').innerText= "Welcome "+localStorage.getItem('user')+"!";
 

@@ -98,7 +98,7 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
               <h4 class="modal-title" id="user">Welcome User!</h4>
             </div>
             <div class="modal-body">
-              <img  id="useravatarin" src=""> 
+              <img  id="partyavatar" class="useravatar" src=""> 
               <table>
                 <tr>
                   <th>Score (Max 20)</th>
@@ -160,7 +160,7 @@ imgArray[23] = 'https://imagizer.imageshack.com/v2/150x100q90/923/P8DCWW.png';
     </div>
   
     <script>
-      document.getElementById('useravatarin').setAttribute('src', localStorage.getItem('avatar'));
+      document.getElementById('partyavatar').setAttribute('src', localStorage.getItem('avatar'));
       document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
       document.getElementById('user').innerText= "Welcome "+localStorage.getItem('user')+"!";
   

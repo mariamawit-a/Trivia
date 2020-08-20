@@ -76,7 +76,7 @@
 </div>
 <div id="share-page">
     <div id="avatarscore">
-        <img  id="useravatar" src=""> 
+        <img  id="shareavatar" class="useravatar" src=""> 
 
         <div id="new-score">
 
@@ -91,7 +91,7 @@
     </div>
 </div>
 <script>
-    document.getElementById('useravatar').setAttribute('src', localStorage.getItem('avatar'));
+    document.getElementById('shareavatar').setAttribute('src', localStorage.getItem('avatar'));
 </script>
 
 <%- include('../partials/footer') %>
