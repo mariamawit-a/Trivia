@@ -68,8 +68,10 @@
 
     #autherization-page{
       font-family: sans-serif;
-      height: 90vh;
+      height: 88vh;
       width: 100%;
+      max-width: 100%;
+      overflow: hidden;
       background-color: var(--colorShadeA);
       border: 2px var(--colorShadeE) solid;
       border-top: transparent;
@@ -79,6 +81,12 @@
     }
     #box{
       border-top: 2px solid var(--colorShadeE);
+      background-color: var(--colorShadeA);
+      margin-top: 25px;
+      height: 80%;
+    }
+    #snaplogin{
+      margin-top: 20px;
     }
 
    .prompt {
@@ -509,6 +517,7 @@ fieldset{
       width: 70%;
     }
     .category{
+      max-height: 55px;
       margin-bottom: 15px;
       padding-bottom: 0px;
       text-align: center;
