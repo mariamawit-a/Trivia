@@ -246,7 +246,7 @@
     position: fixed;
     flex-direction: column;
     align-items: center;
-    margin-top: 20%;
+    margin-top: 30%;
   }
 
   .settings{
@@ -281,14 +281,11 @@
     /*********************************************** intro/index.ejs/modals ****************************************************/
     .modal{
       border: yellow 2px solid;
-      text-align: center;
       width: 100%;
-
-     
-
     }
    
     .modal-content{
+
       color: white;
       font-family: 'Retro';
     }
@@ -343,23 +340,24 @@
       flex-wrap: wrap;
   }
    
+  
+  
     .category{
       background-color: var(--colorShadeA);
       box-shadow: 2px 2px var(--colorShadeA), 3px 3px var(--colorShadeB), 4px 4px var(--colorShadeE);
-      /* box-shadow: 1px 2px 0px 10px rgba(46, 229, 157, 0.4); */
       font-family: sans-serif;
-      border-left: none;
       width: 600px;
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      align-items: center;
       font-size: 30px;
       color: var(--colorShadeE); 
+      margin-bottom: 15px;
+      padding-bottom: 0px;
+      text-align: center;
+      border: 2px solid var(--colorShadeE);
+      border-radius: 1%;
     }
      
       .category img {
-          width: 15%;
+          width: 0%;
           height: 100%;
           float: left;
           /* border: 0.5px dotted var(--colorShadeE); */
@@ -370,13 +368,6 @@
         background-color: var(--colorShadeE);
         color: var(--colorShadeA); 
       }
-  /*********************************************** intro/coming.ejs ****************************************************/
-#comingSoon img{
-  margin: auto;
-  height: 100%;
-  width: 100%;
-
-}
 
 
 /*********************************************** game/index.ejs ****************************************************/
@@ -476,6 +467,66 @@ fieldset{
   }
 
 
+
+/*********************************************** game/share.ejs ****************************************************/
+
+
+  #avatarscore{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #share-page{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height : 80vh;
+      background-color: rgb(48, 23, 82);
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+  }
+    
+  #share-score{
+      font-family: sans-serif;
+      background-color:rgb(143, 97, 219);
+      box-shadow: rgb(240, 240, 13);
+      border: none;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      border-radius: 12px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      outline: none;
+  }
+      #share-score:hover{
+          background-color: rgb(223, 39, 184);
+          box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+          color: #fff;
+          transform: translateY(-7px);
+      }
+  
+    
+    #snap{
+        margin: 0;
+        font-size: 30px;
+        color: rgb(240, 240, 13);
+        
+    }
+    #snap i{
+        font-size: 40px;
+        
+    }
+  
+
+
   @media only screen and (max-width: 900px) {
     .avatar {
       margin: 2px;
@@ -493,6 +544,9 @@ fieldset{
       width: 60px;
       height: 60px;
     }
+    #choose-mood{
+      margin-top: 20%;
+    }
     .modal-dialog{
       margin-top: 10vh;
       width: 350px;
@@ -504,7 +558,6 @@ fieldset{
       z-index: 99;
       padding: auto;
       outline: none;
-      /* border: 2px solid var(--colorShadeE); */
       bottom: 0;
       background: transparent;
     }
@@ -512,8 +565,8 @@ fieldset{
       font-size: 20px;
     }
       .setting img{
-        width: 70px;
-        height: 70px;
+        width: 73px;
+        height: 73px;
         border-radius: 50%;
     }
     #logo img{
@@ -531,15 +584,8 @@ fieldset{
     }
     #categories{
       width: 60%;
-      
-      /* background-color: black; */
     }
-     
-      .category img {
-          width: 0%;
-          /* background-color: rgb(143, 97, 219); */
-        
-      }
+    
     
   
     form{
@@ -598,3 +644,8 @@ fieldset{
         width: 90%;
       }
   }
+
+
+
+
+

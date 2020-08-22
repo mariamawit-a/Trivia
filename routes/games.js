@@ -5,14 +5,6 @@ const router = express.Router();
 const generate = require('meaningful-string');
 
 
-// router.use(express.urlencoded({extended: true}))
-
-// router.get('/', async (req, res) =>{
-    
-//       const response = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple');
-       
-//       res.render('intro/level', {questions: response.data.results});   
-// });
 router.get('/party', async(req, res, next) => {
 
   const token = await axios.get(
@@ -64,10 +56,10 @@ router.get('/:categoryid', async (req, res, next) => {
           `https://opentdb.com/api_count.php?category=${categoryid}&type=multiple`,
         );
         var number = response.data.category_question_count.total_question_count;
-
+        console.log(number);  
           try {
             const reponse = await axios.get(
-              `https://opentdb.com/api.php?amount=${number}&category=${categoryid}&type=multiple`,
+              `https://opentdb.com/api.php?amount=${number-1}&category=${categoryid}&type=multiple`,
             );
             res.render('games/chill', {questions: reponse.data.results});
           } catch (e) {
@@ -78,21 +70,6 @@ router.get('/:categoryid', async (req, res, next) => {
     }
 
   });
-
-  
-// router.get('/:categoryid/:difficultyLevel', async (req, res, next) => {
-//   const {categoryid} = req.params;
-//   const {difficultyLevel} = req.params;
-
-//   try {
-//     const response = await axios.get(
-//       `https://opentdb.com/api.php?amount=10&category=${categoryid}&difficulty=${difficultyLevel}&type=multiple`,
-//     );
-//     res.render('games/index', {questions: response.data.results});
-//   } catch (e) {
-//     console.log(e);
-//   }
-// });
 
 router.post('/submit/:timeleft', async(req, res, next) => {
 
