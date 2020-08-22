@@ -48,7 +48,7 @@ https://otriviagame.herokuapp.com/
 
 ## Credit
 
-This project was a colaborative effort and the following members worked on this project:
+This project was a collaborative effort and the following members worked on this project:
 
 - [mariamawit-a](https://github.com/mariamawit-a)
 - [KubanLink](https://github.com/KubanLink)
