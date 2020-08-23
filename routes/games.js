@@ -104,11 +104,9 @@ router.post('/party/submit', async(req, res, next) => {
       wrong++;
   });
 
-  if(2*right-wrong>=0){
-    const total = 2*right-wrong;
-  }
-  else{
-    const total = 0;
+  let total = 0
+  if(2*right-wrong>0){
+    total = 2*right-wrong;
   }
 
   res.render('games/share', {right, wrong, total});

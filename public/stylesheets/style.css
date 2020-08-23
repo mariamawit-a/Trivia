@@ -66,7 +66,7 @@
 
     /*********************************************** intro/authentication.ejs ****************************************************/
 
-    #autherization-page{
+    #authorization-page{
       font-family: sans-serif;
       height: 88vh;
       width: 100%;
@@ -470,13 +470,6 @@ fieldset{
 
 /*********************************************** game/share.ejs ****************************************************/
 
-
-  #avatarscore{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
   #share-page{
       display: flex;
       flex-direction: column;
@@ -488,42 +481,56 @@ fieldset{
       transition: all 0.3s ease 0s;
       cursor: pointer;
   }
-    
-  #share-score{
-      font-family: sans-serif;
-      background-color:rgb(143, 97, 219);
-      box-shadow: rgb(240, 240, 13);
-      border: none;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      margin: 4px 2px;
-      border-radius: 12px;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease 0s;
-      cursor: pointer;
-      outline: none;
-  }
-      #share-score:hover{
-          background-color: rgb(223, 39, 184);
-          box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-          color: #fff;
-          transform: translateY(-7px);
+
+    #avatarscore{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+      #shareavatar{
+        border-radius: 50%;
+        border: 2px ridge var(--colorShadeE);
+        background-color: var(--colorShadeB);
       }
-  
+      #shareavatar:hover{
+        background-color: var(--colorShadeE);
+      }
+      
+    #share-score{
+        font-family: sans-serif;
+        background-color:rgb(143, 97, 219);
+        box-shadow: rgb(240, 240, 13);
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        border-radius: 12px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
+        #share-score:hover{
+            background-color: rgb(223, 39, 184);
+            box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+            color: #fff;
+            transform: translateY(-7px);
+        }
     
-    #snap{
-        margin: 0;
-        font-size: 30px;
-        color: rgb(240, 240, 13);
-        
-    }
-    #snap i{
-        font-size: 40px;
-        
-    }
+        #snap{
+            margin: 0;
+            font-size: 30px;
+            color: rgb(240, 240, 13);
+            
+        }
+        #snap i{
+            font-size: 40px;
+            
+        }
   
 
 
