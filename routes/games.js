@@ -59,7 +59,7 @@ router.get('/:categoryid', async (req, res, next) => {
         console.log(number);  
           try {
             const reponse = await axios.get(
-              `https://opentdb.com/api.php?amount=${number-1}&category=${categoryid}&type=multiple`,
+              `https://opentdb.com/api.php?amount=${number-5}&category=${categoryid}&type=multiple`,
             );
             res.render('games/chill', {questions: reponse.data.results});
           } catch (e) {
@@ -104,7 +104,12 @@ router.post('/party/submit', async(req, res, next) => {
       wrong++;
   });
 
-  const total = 2*right-wrong;
+  if(2*right-wrong>=0){
+    const total = 2*right-wrong;
+  }
+  else{
+    const total = 0;
+  }
 
   res.render('games/share', {right, wrong, total});
 });

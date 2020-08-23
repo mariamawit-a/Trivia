@@ -589,18 +589,20 @@ fieldset{
     
   
     form{
-      height: 90vh;
+      height: 100vh;
       display: flex;
       white-space: nowrap;
       overflow: auto;
       overflow-y: hidden;
     }
     #questions{
+      margin: 0;
+      padding-left: 15px;
       display: flex;
       overflow: auto;
       flex: none;
       width: 100%;
-      height: 450px;
+      height: 340px;
       flex-flow: row nowrap;
       scroll-snap-type: x mandatory;
     }
@@ -622,23 +624,37 @@ fieldset{
 
     }
      fieldset{
-      margin-top: 100px;
+      padding: 10px;
+      padding-bottom: 0px;
+      margin: 50px 15px auto 15px;
+     
       text-align: left;
       scroll-snap-align: center;
       flex: none;
-      width: 90%;
-      height: 150px;
+      width: 97%;
+      height: 180px;
      }
       fieldset .question{
-        height: 50px;
+
+        height: 60px;
         white-space: normal;
         font-size: 15px;
       }
       
       fieldset .choices{
+        margin: 0;
         font-size: 12px;
       }
 
+      #share-fact{
+        color: white;
+        font-family: sans-serif;
+        width: 100%;
+        margin: 20px auto 0px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       #new-score{
         font-size: 15px;
         width: 90%;
