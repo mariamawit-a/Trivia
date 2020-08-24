@@ -79,15 +79,7 @@ Storage.prototype.getObj = function(key) {
 
                     const name = `choicefor${num}`;
                     document.getElementById('choices').setAttribute('id', `chosen${num}`);
-
-                    for(let radionum = 0; radionum<4; ++radionum)
-                    {
-                        document.getElementsByClassName('radio')[radionum].setAttribute('name', name);
-                    }
-                    for(let radionum = 0; radionum<4; ++radionum)
-                    {
-                        document.getElementsByClassName('radio')[0].setAttribute('class', 'radios');
-                    }
+               
                     ++num;
                 }); 
 ```
