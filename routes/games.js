@@ -22,9 +22,6 @@ router.get('/party', async(req, res, next) => {
 
     let item1 = response1.data.results;
     let item2 = response2.data.results;
-
-    console.log(typeof(item1), item1.length);
-    console.log(typeof(item2), item2.length);
     
 
     res.render('games/party', {questions1: item1, questions2 : item2});
@@ -80,7 +77,7 @@ router.post('/submit/:timeleft', async(req, res, next) => {
   const seconds = Math.floor((timetaken % (1000 * 60)) / 1000);
   
   let score = 0;
-  console.log(req.body);
+
   Object.values(req.body).forEach(answer =>{
 
     if(answer=='correct')
