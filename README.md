@@ -7,6 +7,7 @@ OTrivia is a trivia website based on the [Open Trivia DB](https://opentdb.com), 
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Website](#website)
 * [Features](#features)
 * [Status](#status)
 * [Credit](#credit)
