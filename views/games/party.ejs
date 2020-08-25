@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-    console.log("hellooooo");
+
 </script>
 <div class="navbar"> 
     <a href='/' class="back">
@@ -15,7 +15,7 @@
 <script>
     window.onload = function(){
         // The data/time we want to countdown to
-        var countDownDate = new Date().getTime()+ (30 * 1000 + 1);
+        var countDownDate = new Date().getTime()+ (5 * 60 * 1000 + 1);
 
         // Run myfunc every second
         var myfunc = setInterval(function() {
@@ -23,9 +23,6 @@
         var now = new Date().getTime();
         var timeleft = countDownDate - now;
         
-        
-        //change redirect url time
-        document.getElementById('form').action = `/games/submit/${timeleft+1000}`;
 
         // Calculating the days, hours, minutes and seconds left
         var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
