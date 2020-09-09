@@ -280,6 +280,11 @@
     background: var(--colorShadeE);
     transform: translate(0, 0.375em);
   }
+
+  .useravatar{
+    width: 100px;
+    height: 100px;
+  }
     /*********************************************** intro/index.ejs/modals ****************************************************/
     .modal{
       border: yellow 2px solid;
@@ -409,6 +414,10 @@ fieldset{
   fieldset .choices{
     font-family: sans-serif;
     font-size: 17px;
+    margin-top: 5px;
+  }
+  #chosen{
+    margin-top: 10px;
   }
   form .big-button{
     text-align: center;
@@ -418,10 +427,10 @@ fieldset{
       background-color: var(--colorShadeB);
     }
 
-.choices{
-  font-family: sans-serif;
-  font-size: 8px;
-}
+    #fixsubmit{
+      margin-top: 20px;
+      width: 80%;
+    }
 /*********************************************** game/chill.ejs ****************************************************/
 form.gsc-search-box{
   font-size: 13px;
@@ -431,6 +440,30 @@ form.gsc-search-box{
     margin-left: 0;
     width: 100%;
     height: auto;
+}
+
+#fix{
+  margin-top: 20px;
+  width: 80%;
+}
+
+fieldset{
+  padding: 10px;
+  padding-bottom: 0px;
+  margin: 50px 15px auto 15px;
+  text-align: left;
+  flex: none;
+  width: 97%;
+ }
+
+ #share-fact{
+  color: white;
+  font-family: sans-serif;
+  width: 100%;
+  margin: 10px auto 0px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*********************************************** game/score.ejs ****************************************************/
@@ -446,12 +479,11 @@ form.gsc-search-box{
   #new-score{
     border: 2px var(--colorShadeE) solid;
     color: var(--colorShadeE);
-    width: 40%;
-    height: 30px;
+    width: 100%;
+    height: 40px;
     padding: 0px;
     margin: 20px;
     display: flex;
-    line-height: 0px;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
@@ -550,10 +582,7 @@ form.gsc-search-box{
     .avatar {
       margin: 2px;
     }
-    .useravatar{
-      width: 100px;
-      height: 100px;
-    }
+
     .avatar {
       width: 80px;
       height: 80px;
@@ -630,27 +659,9 @@ form.gsc-search-box{
       background: transparent;  /* Optional: just make scrollbar invisible */
   }
 
-    #fix{
-      margin-top: 210px;
-      width: 80%;
-      position: fixed;
-    }
-    #fixsubmit{
-      margin-top: 200px;
-      width: 80%;
-      position: fixed;
-
-    }
+   
      fieldset{
-      padding: 10px;
-      padding-bottom: 0px;
-      margin: 50px 15px auto 15px;
-     
-      text-align: left;
       scroll-snap-align: center;
-      flex: none;
-      width: 97%;
-      height: 180px;
      }
       fieldset .question{
 
@@ -660,18 +671,24 @@ form.gsc-search-box{
       }
       
       fieldset .choices{
-        margin: 0;
         font-size: 12px;
       }
-
+      #chosen{
+        margin: 10px;
+      }
+      .choice-box{
+        margin-bottom: 10px;
+      }
+      #fix{
+        margin-top: 210px;
+        position: fixed;
+      }
+      #fixsubmit{
+        margin-top: 200px;
+        position: fixed;
+      }
       #share-fact{
-        color: white;
-        font-family: sans-serif;
-        width: 100%;
         margin: 20px auto 0px auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
       #new-score{
         font-size: 15px;
